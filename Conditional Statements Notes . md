@@ -1,0 +1,73 @@
+📘 Conditional Statements (IF / ELIF / ELSE) — Complete Practice Roadmap
+
+Contains a comprehensive set of 180 level-wise practice problems focused on mastering Python conditional statements using if, elif, and else.
+
+Structured from Level 0 to Level 8, ensuring a smooth progression from beginner-level condition checks to advanced system-level decision logic.
+
+Levels 0–1 cover fundamental concepts such as:
+
+Positive/negative/zero checks
+
+Even/odd logic
+
+Basic comparisons
+
+Simple validations using single if and if–else
+
+Levels 2–3 focus on:
+
+Nested if statements
+
+Logical operators (and, or, not)
+
+elif chains
+
+Categorization problems like grading systems, slabs, and classifications
+
+Levels 4–5 introduce real-world decision-making scenarios, including:
+
+Billing systems (electricity, water, tax, discounts)
+
+Eligibility checks (scholarship, loan, exam, age)
+
+Input validation and boundary conditions
+
+Optimization and simplification of complex conditions
+
+Levels 6–7 are designed to develop software-engineering thinking, covering:
+
+ATM and banking decision logic
+
+Authentication and access control systems
+
+Inventory and workflow state logic
+
+Rule engines, fallback mechanisms, and priority handling
+
+Level 8 (Mini Projects) consolidates all concepts through practical systems such as:
+
+Grading and evaluation systems
+
+Online shopping checkout logic
+
+Ticket booking and billing systems
+
+Rule-based decision engines and validation pipelines
+
+Emphasizes:
+
+Clear logical thinking
+
+Handling edge cases correctly
+
+Writing readable and maintainable conditional logic
+
+Suitable for:
+
+University semester exams
+
+Coding interviews
+
+Beginners to advanced learners
+
+Building strong problem-solving foundations in Python
