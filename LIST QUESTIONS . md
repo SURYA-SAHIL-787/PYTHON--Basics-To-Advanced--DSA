@@ -1,0 +1,228 @@
+====================================================================================================================
+🐍 TOPIC 8 — LISTS (ARRAYS)
+====================================================================================================================
+
++--------------------------------------------------------------------------------------------------+
+|                                🟢 LEVEL 0 — LIST FUNDAMENTALS                                    |
++--------------------------------------------------------------------------------------------------+
+| 01. CREATE AN EMPTY LIST AND PRINT IT.                                                           |
+| 02. CREATE A LIST WITH 5 INTEGERS.                                                               |
+| 03. CREATE A LIST WITH MIXED DATA TYPES.                                                         |
+| 04. PRINT ENTIRE LIST.                                                                          |
+| 05. PRINT LENGTH OF LIST.                                                                       |
+| 06. PRINT FIRST ELEMENT OF LIST.                                                                |
+| 07. PRINT LAST ELEMENT OF LIST.                                                                 |
+| 08. PRINT ELEMENTS ONE BY ONE USING LOOP.                                                       |
+| 09. PRINT LIST USING INDEX.                                                                     |
+| 10. PRINT LIST IN REVERSE ORDER.                                                                |
+| 11. COPY LIST TO ANOTHER LIST.                                                                  |
+| 12. MODIFY AN ELEMENT IN LIST.                                                                  |
+| 13. APPEND AN ELEMENT TO LIST.                                                                  |
+| 14. INSERT ELEMENT AT A POSITION.                                                               |
+| 15. REMOVE ELEMENT BY VALUE.                                                                    |
+| 16. REMOVE ELEMENT BY INDEX.                                                                    |
+| 17. CLEAR THE LIST.                                                                             |
+| 18. DELETE THE LIST.                                                                            |
+| 19. CHECK IF LIST IS EMPTY.                                                                     |
+| 20. CHECK IF ELEMENT EXISTS IN LIST.                                                            |
++--------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------+
+|                      🟢 LEVEL 1 — VERY BASIC (COUNTING & SIMPLE OPERATIONS)                       |
++--------------------------------------------------------------------------------------------------+
+| 21. FIND SUM OF LIST ELEMENTS.                                                                   |
+| 22. FIND AVERAGE OF LIST ELEMENTS.                                                              |
+| 23. FIND MAXIMUM ELEMENT.                                                                       |
+| 24. FIND MINIMUM ELEMENT.                                                                       |
+| 25. COUNT EVEN NUMBERS IN LIST.                                                                 |
+| 26. COUNT ODD NUMBERS IN LIST.                                                                  |
+| 27. COUNT POSITIVE NUMBERS.                                                                     |
+| 28. COUNT NEGATIVE NUMBERS.                                                                     |
+| 29. COUNT ZEROS.                                                                                |
+| 30. COUNT FREQUENCY OF AN ELEMENT.                                                              |
+| 31. PRINT ALL UNIQUE ELEMENTS.                                                                  |
+| 32. PRINT DUPLICATE ELEMENTS.                                                                   |
+| 33. REMOVE DUPLICATES FROM LIST.                                                                |
+| 34. FIND INDEX OF FIRST OCCURRENCE.                                                             |
+| 35. FIND INDEX OF LAST OCCURRENCE.                                                              |
+| 36. FIND ALL INDICES OF AN ELEMENT.                                                             |
+| 37. REPLACE ALL OCCURRENCES OF VALUE.                                                           |
+| 38. SQUARE EACH ELEMENT OF LIST.                                                                |
+| 39. CUBE EACH ELEMENT OF LIST.                                                                  |
+| 40. CREATE LIST OF SQUARES FROM ANOTHER LIST.                                                   |
++--------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------+
+|                         🟡 LEVEL 2 — BASIC (SEARCHING & SIMPLE LOGIC)                            |
++--------------------------------------------------------------------------------------------------+
+| 41. LINEAR SEARCH FOR AN ELEMENT.                                                               |
+| 42. BINARY SEARCH (SORTED LIST).                                                                |
+| 43. CHECK IF LIST IS SORTED.                                                                    |
+| 44. FIND SECOND LARGEST ELEMENT.                                                                |
+| 45. FIND SECOND SMALLEST ELEMENT.                                                               |
+| 46. FIND KTH LARGEST ELEMENT.                                                                   |
+| 47. FIND KTH SMALLEST ELEMENT.                                                                  |
+| 48. REVERSE LIST WITHOUT USING REVERSE().                                                       |
+| 49. REVERSE LIST USING SLICING.                                                                 |
+| 50. ROTATE LIST LEFT BY 1.                                                                      |
+| 51. ROTATE LIST RIGHT BY 1.                                                                     |
+| 52. ROTATE LIST LEFT BY K POSITIONS.                                                            |
+| 53. ROTATE LIST RIGHT BY K POSITIONS.                                                           |
+| 54. SEPARATE EVEN AND ODD ELEMENTS.                                                             |
+| 55. SEPARATE POSITIVE AND NEGATIVE NUMBERS.                                                     |
+| 56. MOVE ALL ZEROS TO END.                                                                      |
+| 57. MOVE ALL ZEROS TO BEGINNING.                                                                |
+| 58. MERGE TWO LISTS.                                                                            |
+| 59. MERGE TWO SORTED LISTS.                                                                     |
+| 60. FIND UNION OF TWO LISTS.                                                                    |
++--------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------+
+|                         🟡 LEVEL 3 — BASIC+ (SORTING & FREQUENCIES)                               |
++--------------------------------------------------------------------------------------------------+
+| 61. SORT LIST USING BUILT-IN SORT().                                                            |
+| 62. SORT LIST IN DESCENDING ORDER.                                                              |
+| 63. SORT LIST WITHOUT USING BUILT-IN SORT.                                                      |
+| 64. BUBBLE SORT IMPLEMENTATION.                                                                 |
+| 65. SELECTION SORT IMPLEMENTATION.                                                              |
+| 66. INSERTION SORT IMPLEMENTATION.                                                              |
+| 67. COUNT FREQUENCY OF EACH ELEMENT.                                                            |
+| 68. FIND MOST FREQUENT ELEMENT.                                                                 |
+| 69. FIND LEAST FREQUENT ELEMENT.                                                                |
+| 70. SORT LIST BY FREQUENCY.                                                                     |
+| 71. SORT LIST OF STRINGS ALPHABETICALLY.                                                        |
+| 72. SORT LIST OF STRINGS BY LENGTH.                                                             |
+| 73. SORT LIST OF TUPLES BY SECOND ELEMENT.                                                      |
+| 74. REMOVE DUPLICATES WHILE MAINTAINING ORDER.                                                  |
+| 75. CHECK IF TWO LISTS ARE EQUAL.                                                               |
+| 76. CHECK IF TWO LISTS ARE PERMUTATIONS.                                                        |
+| 77. CHECK IF LIST IS PALINDROME.                                                                |
+| 78. FIND COMMON ELEMENTS BETWEEN TWO LISTS.                                                     |
+| 79. FIND UNCOMMON ELEMENTS.                                                                     |
+| 80. FIND INTERSECTION OF LISTS.                                                                 |
++--------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------+
+|                    🟠 LEVEL 4 — MEDIUM (SUBARRAYS & PREFIX TECHNIQUES)                            |
++--------------------------------------------------------------------------------------------------+
+| 81. PRINT ALL SUBARRAYS OF A LIST.                                                              |
+| 82. COUNT TOTAL NUMBER OF SUBARRAYS.                                                            |
+| 83. FIND SUM OF ALL SUBARRAYS.                                                                  |
+| 84. FIND SUBARRAY WITH MAXIMUM SUM.                                                             |
+| 85. FIND SUBARRAY WITH MINIMUM SUM.                                                             |
+| 86. KADANE’S ALGORITHM.                                                                         |
+| 87. FIND SUBARRAYS WITH SUM EQUAL TO K.                                                         |
+| 88. COUNT SUBARRAYS WITH SUM EQUAL TO K.                                                        |
+| 89. PREFIX SUM ARRAY CONSTRUCTION.                                                              |
+| 90. RANGE SUM QUERY USING PREFIX SUMS.                                                          |
+| 91. FIND EQUILIBRIUM INDEX.                                                                     |
+| 92. FIND LEADERS IN ARRAY.                                                                      |
+| 93. FIND MAJORITY ELEMENT.                                                                      |
+| 94. FIND MISSING NUMBER IN 1 TO N.                                                              |
+| 95. FIND REPEATING NUMBER.                                                                      |
+| 96. FIND ALL MISSING NUMBERS.                                                                   |
+| 97. FIND PAIR WITH GIVEN SUM.                                                                   |
+| 98. COUNT PAIRS WITH GIVEN SUM.                                                                 |
+| 99. FIND TRIPLET WITH GIVEN SUM.                                                                |
+| 100. FIND LONGEST INCREASING SUBARRAY.                                                          |
++--------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------+
+|                     🔴 LEVEL 5 — HARD (ADVANCED ARRAY ALGORITHMS)                                |
++--------------------------------------------------------------------------------------------------+
+| 101. LONGEST INCREASING SUBSEQUENCE.                                                            |
+| 102. LONGEST DECREASING SUBSEQUENCE.                                                            |
+| 103. LONGEST BITONIC SUBSEQUENCE.                                                               |
+| 104. MAXIMUM PRODUCT SUBARRAY.                                                                  |
+| 105. MINIMUM PRODUCT SUBARRAY.                                                                  |
+| 106. SLIDING WINDOW MAXIMUM.                                                                    |
+| 107. SLIDING WINDOW MINIMUM.                                                                    |
+| 108. TWO POINTER TECHNIQUE PROBLEMS.                                                            |
+| 109. DUTCH NATIONAL FLAG PROBLEM.                                                               |
+| 110. REARRANGE ARRAY ALTERNATIVELY.                                                             |
+| 111. MERGE INTERVALS.                                                                           |
+| 112. INSERT INTERVAL.                                                                           |
+| 113. FIND OVERLAPPING INTERVALS.                                                                |
+| 114. FIND MINIMUM PLATFORMS (INTERVALS).                                                        |
+| 115. ACTIVITY SELECTION PROBLEM.                                                                |
+| 116. CHOCOLATE DISTRIBUTION PROBLEM.                                                            |
+| 117. TRAPPING RAIN WATER PROBLEM.                                                               |
+| 118. CONTAINER WITH MOST WATER.                                                                 |
+| 119. STOCK BUY AND SELL (1 TRANSACTION).                                                        |
+| 120. STOCK BUY AND SELL (MULTIPLE TRANSACTIONS).                                                |
++--------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------+
+|                     🔴 LEVEL 6 — VERY HARD (2D LISTS / MATRICES)                                 |
++--------------------------------------------------------------------------------------------------+
+| 121. CREATE 2D LIST (MATRIX).                                                                   |
+| 122. PRINT MATRIX ROW-WISE.                                                                     |
+| 123. PRINT MATRIX COLUMN-WISE.                                                                  |
+| 124. TRANSPOSE MATRIX.                                                                          |
+| 125. ROTATE MATRIX 90 DEGREES.                                                                  |
+| 126. ROTATE MATRIX 180 DEGREES.                                                                 |
+| 127. SPIRAL TRAVERSAL OF MATRIX.                                                                |
+| 128. WAVE TRAVERSAL OF MATRIX.                                                                  |
+| 129. DIAGONAL TRAVERSAL.                                                                        |
+| 130. PRINT BOUNDARY ELEMENTS.                                                                   |
+| 131. CHECK MATRIX SYMMETRY.                                                                     |
+| 132. CHECK IDENTITY MATRIX.                                                                     |
+| 133. ADD TWO MATRICES.                                                                          |
+| 134. MULTIPLY TWO MATRICES.                                                                     |
+| 135. SEARCH ELEMENT IN MATRIX.                                                                  |
+| 136. ROW-WISE SORTED MATRIX SEARCH.                                                             |
+| 137. FIND MAX ELEMENT IN EACH ROW.                                                              |
+| 138. FIND MIN ELEMENT IN EACH COLUMN.                                                           |
+| 139. COUNT ZEROS IN MATRIX.                                                                     |
+| 140. REPLACE DIAGONAL ELEMENTS.                                                                 |
++--------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------+
+|                    🧠 LEVEL 7 — VERY HARD (SIMULATION & SYSTEM THINKING)                          |
++--------------------------------------------------------------------------------------------------+
+| 141. IMPLEMENT DYNAMIC ARRAY RESIZING.                                                          |
+| 142. INVENTORY MANAGEMENT USING LIST.                                                           |
+| 143. SHOPPING CART USING LIST.                                                                  |
+| 144. STUDENT RECORD SYSTEM USING LIST.                                                          |
+| 145. BANK TRANSACTION HISTORY LIST.                                                             |
+| 146. QUEUE SIMULATION USING LIST.                                                               |
+| 147. STACK IMPLEMENTATION USING LIST.                                                           |
+| 148. CIRCULAR QUEUE USING LIST.                                                                 |
+| 149. PRIORITY QUEUE USING LIST.                                                                 |
+| 150. LRU CACHE SIMULATION.                                                                      |
+| 151. EVENT SCHEDULING SIMULATION.                                                               |
+| 152. LOG PROCESSING USING LIST.                                                                 |
+| 153. TEXT ANALYZER USING LIST.                                                                  |
+| 154. SEAT BOOKING SYSTEM USING LIST.                                                            |
+| 155. EXAM SEATING ARRANGEMENT USING LIST.                                                       |
+| 156. GAME BOARD SIMULATION USING LIST.                                                          |
+| 157. TURN-BASED GAME SIMULATION.                                                                |
+| 158. TRAFFIC SIMULATION USING LIST.                                                             |
+| 159. SCHEDULER SIMULATION.                                                                      |
+| 160. DATA PROCESSING PIPELINE.                                                                  |
++--------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------+
+|                      🧠 LEVEL 8 — MINI PROJECTS (LIST-CENTRIC)                                   |
++--------------------------------------------------------------------------------------------------+
+| 161. STUDENT MANAGEMENT SYSTEM.                                                                 |
+| 162. INVENTORY MANAGEMENT SYSTEM.                                                               |
+| 163. SHOPPING CART APPLICATION.                                                                 |
+| 164. ATM TRANSACTION TRACKER.                                                                   |
+| 165. EXPENSE TRACKER.                                                                           |
+| 166. QUIZ SYSTEM.                                                                               |
+| 167. SEAT BOOKING SYSTEM.                                                                       |
+| 168. LIBRARY MANAGEMENT SYSTEM.                                                                 |
+| 169. BANK ACCOUNT MANAGER.                                                                      |
+| 170. TICKET RESERVATION SYSTEM.                                                                 |
+| 171. GAME SCOREBOARD.                                                                           |
+| 172. ORDER PROCESSING SYSTEM.                                                                   |
+| 173. RECOMMENDATION ENGINE.                                                                     |
+| 174. LOG ANALYZER TOOL.                                                                         |
+| 175. DATA ANALYZER TOOL.                                                                        |
+| 176. SCHEDULING TOOL.                                                                           |
+| 177. CLI LIST TOOLKIT.                                                                          |
+| 178. ARRAY ALGORITHM VISUALIZER.                                                                |
+| 179. MATRIX OPERATIONS TOOL.                                                                    |
+| 180. FULL CONSOLE APPLICATION.                                                                  |
++--------------------------------------------------------------------------------------------------+
