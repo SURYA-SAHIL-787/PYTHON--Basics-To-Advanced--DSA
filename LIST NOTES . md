@@ -1,0 +1,883 @@
+====================================================================================================================
+🐍 TOPIC 8 — LISTS (ARRAYS) — DETAILED NOTES (SECTION-WISE) — NO EXAMPLES
+CORE IDEA: WHAT IS A LIST?
+
+A LIST is an ordered, mutable (changeable) collection.
+
+Lists can store duplicate values and mixed data types.
+
+Indexing is 0-based: first element at index 0, last at -1.
+
+Lists support:
+
+Indexing: a[i]
+
+Slicing: a[l:r:step]
+
+Iteration: for x in a
+
+Membership: x in a
+
+IMPORTANT CONCEPTS (USED EVERYWHERE)
+
+MUTABLE: You can change elements directly: a[i] = value
+
+COPYING
+
+b = a is NOT a real copy; both refer to same list (aliasing).
+
+Use shallow copies when needed: a.copy() / a[:] / list(a).
+
+TIME COMPLEXITY BASICS
+
+Index access a[i] → O(1)
+
+Append a.append(x) → amortized O(1)
+
+Insert/delete at middle/beginning → O(n)
+
+Membership x in a → O(n)
+
+Sorting → typically O(n log n)
+
++--------------------------------------------------------------------------------------------------+
+| 🟢 LEVEL 0 — LIST FUNDAMENTALS (1–20) |
++--------------------------------------------------------------------------------------------------+
+
+1) CREATE / PRINT / LENGTH / ACCESS
+
+(Q1–7)
+
+Create empty list: [] or list()
+
+Print list: print(a)
+
+Length: len(a)
+
+First element: a[0] (only if list not empty)
+
+Last element: a[-1] (only if list not empty)
+
+Always handle empty-list safely (avoid IndexError)
+
+2) TRAVERSAL / INDEX-BASED ACCESS
+
+(Q8–10)
+
+Looping methods:
+
+Element loop: for x in a
+
+Index loop: for i in range(len(a))
+
+With index+value: for i, x in enumerate(a)
+
+Reverse printing options:
+
+Traverse backward using indices
+
+Use reversed iterator: reversed(a)
+
+Use slicing: a[::-1] (creates a new reversed list)
+
+3) COPYING / MODIFYING / ADDING
+
+(Q11–14)
+
+Proper copy:
+
+Shallow copy: b = a.copy() / b = a[:]
+
+Modify element:
+
+Direct assignment: a[i] = new_value
+
+Append:
+
+Adds at end: a.append(x)
+
+Insert:
+
+Insert at index: a.insert(i, x) (shifts elements right; O(n))
+
+4) REMOVAL / CLEAR / DELETE / CHECKS
+
+(Q15–20)
+
+Remove by value: a.remove(x)
+
+Removes first occurrence only
+
+Error if value not present → check membership first
+
+Remove by index:
+
+a.pop(i) removes and returns element
+
+del a[i] removes without returning
+
+Clear list: a.clear() (empties but keeps list object)
+
+Delete list: del a (removes reference; list no longer exists)
+
+Check empty:
+
+if not a: is preferred
+
+Check existence:
+
+if x in a: (linear search O(n))
+
++--------------------------------------------------------------------------------------------------+
+| 🟢 LEVEL 1 — VERY BASIC (COUNTING & SIMPLE OPERATIONS) (21–40) |
++--------------------------------------------------------------------------------------------------+
+
+1) AGGREGATIONS: SUM / AVERAGE / MIN / MAX
+
+(Q21–24)
+
+Sum:
+
+Built-in: sum(a) works for numeric lists
+
+Manual accumulate also common
+
+Average:
+
+sum(a) / len(a) (handle len(a)==0)
+
+Max/Min:
+
+Built-in: max(a), min(a) (handle empty list)
+
+Notes:
+
+Empty list for these operations causes errors unless handled.
+
+If mixed types, sum/max/min may fail depending on elements.
+
+2) COUNTING BY CONDITIONS
+
+(Q25–29)
+
+Even/odd counting:
+
+Condition-based counting using loop and % 2
+
+Positive/negative/zero:
+
+Use comparisons > 0, < 0, == 0
+
+General counting pattern:
+
+Initialize counter(s)
+
+Traverse list
+
+Increment when condition true
+
+3) FREQUENCY / UNIQUES / DUPLICATES
+
+(Q30–33)
+
+Frequency of an element:
+
+a.count(x) or manual count
+
+Print unique elements:
+
+Elements with frequency exactly 1
+
+Requires frequency tracking
+
+Print duplicate elements:
+
+Elements with frequency > 1
+
+Avoid printing duplicates multiple times (use a seen set)
+
+Remove duplicates:
+
+Option A: convert to set (loses order)
+
+Option B: maintain order with seen set and build new list
+
+4) FINDING INDICES / REPLACEMENT / TRANSFORMATION
+
+(Q34–40)
+
+First occurrence index:
+
+a.index(x) returns first index (error if not found)
+
+Safe approach: check x in a first
+
+Last occurrence index:
+
+Traverse from end or use reversed index logic
+
+All indices:
+
+Enumerate through list and collect indices where a[i]==x
+
+Replace all occurrences:
+
+Traverse and if element matches target, assign new value
+
+Square/cube each element:
+
+Create new list using loop/list comprehension
+
+In-place modification also possible if allowed
+
+Create squares from another list:
+
+Output list produced from source list; source unchanged unless specified
+
++--------------------------------------------------------------------------------------------------+
+| 🟡 LEVEL 2 — BASIC (SEARCHING & SIMPLE LOGIC) (41–60) |
++--------------------------------------------------------------------------------------------------+
+
+1) SEARCHING
+
+(Q41–42)
+
+Linear search:
+
+Scan from start, compare each element
+
+Returns index/True-False depending on requirement
+
+Works on unsorted lists
+
+Binary search (sorted list):
+
+Requires list to be sorted
+
+Uses low/high pointers, mid calculation
+
+Decide how to handle duplicates (first/any occurrence)
+
+Complexity O(log n)
+
+2) CHECK SORTED / SECOND LARGEST-SMALLEST / KTH ELEMENT
+
+(Q43–47)
+
+Check sorted:
+
+Ensure every adjacent pair satisfies a[i] <= a[i+1]
+
+For descending check >=
+
+Second largest/smallest:
+
+Must handle duplicates:
+
+“Second largest DISTINCT” vs “second position after sort”
+
+Efficient approach: track top two distinct values in one pass
+
+Kth largest/smallest:
+
+Methods:
+
+Sort and pick position (simple, O(n log n))
+
+Use heap/selection algorithms (more advanced)
+
+Need rule: distinct vs not distinct
+
+3) REVERSAL
+
+(Q48–49)
+
+Without reverse():
+
+Two-pointer swap in-place: swap a[l] and a[r]
+
+Using slicing:
+
+a[::-1] creates a new reversed list (not in-place)
+
+4) ROTATIONS
+
+(Q50–53)
+
+Rotate left by 1:
+
+Move first element to end
+
+Rotate right by 1:
+
+Move last element to front
+
+Rotate by k:
+
+Normalize k: k %= n to avoid extra cycles
+
+Common method using slicing:
+
+Left rotation: a[k:] + a[:k]
+
+Right rotation: a[-k:] + a[:-k]
+
+In-place rotation possible but more careful
+
+5) PARTITIONING / MOVING ZEROS / MERGING / UNION
+
+(Q54–60)
+
+Separate even/odd:
+
+Partition by condition; can preserve order (stable) or not
+
+Separate positive/negative:
+
+Same partition idea
+
+Move zeros to end/beginning:
+
+Stable method: count zeros and rebuild
+
+In-place method: two-pointer compaction
+
+Merge two lists:
+
+Concatenation: a + b or extend
+
+Merge two sorted lists:
+
+Two-pointer technique like merge step in merge sort
+
+Union of two lists:
+
+Unique elements combined
+
+If order matters: use seen set and append in order
+
+If order doesn’t matter: set union
+
++--------------------------------------------------------------------------------------------------+
+| 🟡 LEVEL 3 — BASIC+ (SORTING & FREQUENCIES) (61–80) |
++--------------------------------------------------------------------------------------------------+
+
+1) BUILT-IN SORTING
+
+(Q61–62)
+
+a.sort() sorts in-place (ascending by default)
+
+a.sort(reverse=True) for descending
+
+sorted(a) returns new list
+
+2) SORT WITHOUT BUILT-IN / BASIC SORT ALGORITHMS
+
+(Q63–66)
+
+Manual sorting means implementing algorithm logic:
+
+Bubble sort:
+
+Repeatedly swap adjacent out-of-order elements
+
+After each pass, largest element moves to end
+
+Selection sort:
+
+Select smallest element and swap into correct position each pass
+
+Insertion sort:
+
+Insert each element into its correct position in the sorted left portion
+
+Notes:
+
+These are O(n²) average/worst
+
+Useful for understanding sorting mechanics
+
+3) FREQUENCY MAPS AND FREQUENCY-BASED TASKS
+
+(Q67–70)
+
+Count frequency of each element:
+
+Use dict: freq[x] = freq.get(x,0)+1
+
+Most/least frequent:
+
+Use max/min over freq values
+
+Handle ties: decide if you need one element or all tied elements
+
+Sort by frequency:
+
+Sort elements using key = frequency
+
+Decide: frequency ascending/descending
+
+Tie-breaker rules may be needed (value order / first occurrence)
+
+4) SORT STRINGS / TUPLES
+
+(Q71–73)
+
+Sort strings alphabetically:
+
+Default lexicographic order
+
+Case sensitivity: may need key=str.lower
+
+Sort strings by length:
+
+Use key=len
+
+Sort list of tuples by second element:
+
+Key function: key=lambda t: t[1]
+
+5) DEDUP WITH ORDER / EQUALITY / PERMUTATION / PALINDROME / SET OPS
+
+(Q74–80)
+
+Remove duplicates maintaining order:
+
+Use seen set and build output list
+
+Two lists equal:
+
+Same length and all positions equal
+
+Two lists permutations:
+
+Same multiset of elements (order irrelevant)
+
+Use frequency dict / sorting comparison
+
+List palindrome:
+
+a == a[::-1] logic (conceptually)
+
+Common elements / intersection:
+
+Intersection = elements present in both
+
+Use sets for uniqueness; use frequency for multiset intersection
+
+Uncommon elements:
+
+Symmetric difference (present in exactly one)
+
+If duplicates matter, needs frequency logic
+
++--------------------------------------------------------------------------------------------------+
+| 🟠 LEVEL 4 — MEDIUM (SUBARRAYS & PREFIX TECHNIQUES) (81–100) |
++--------------------------------------------------------------------------------------------------+
+
+1) SUBARRAY BASICS
+
+(Q81–83)
+
+Subarray = contiguous segment a[i..j]
+
+Total subarrays for n elements: n*(n+1)/2
+
+Print all subarrays:
+
+Two loops: start index and end index
+
+Sum of all subarrays:
+
+Brute force O(n³) (too slow)
+
+Better:
+
+Prefix sums O(n²)
+
+Contribution technique O(n)
+
+2) MAX/MIN SUBARRAY SUM + KADANE
+
+(Q84–86)
+
+Maximum subarray sum:
+
+Kadane’s algorithm: linear time O(n)
+
+Tracks best sum ending at current index
+
+Minimum subarray sum:
+
+Similar approach (invert logic) or run Kadane on negated array
+
+3) SUBARRAY SUM = K (IMPORTANT)
+
+(Q87–88)
+
+For arrays with negatives:
+
+Use prefix sum + hashmap count
+
+Idea:
+
+If prefix_sum[j] - prefix_sum[i] = k then subarray (i+1..j) sums to k
+
+Hashmap stores counts of prefix sums so far
+
+Count vs list all:
+
+Counting uses frequency map
+
+Printing requires storing indices lists (more memory)
+
+4) PREFIX SUM ARRAY + RANGE QUERIES
+
+(Q89–90)
+
+Prefix sum array p where:
+
+p[0] = 0
+
+p[i] = sum of first i elements
+
+Range sum [l..r]:
+
+p[r+1] - p[l]
+
+5) EQUILIBRIUM / LEADERS / MAJORITY / MISSING/REPEATING / PAIRS/TRIPLETS / LISUBARRAY
+
+(Q91–100)
+
+Equilibrium index:
+
+Index where left sum == right sum
+
+Use total sum and running left sum
+
+Leaders:
+
+Element greater than all elements to its right
+
+Scan from right keeping current max
+
+Majority element:
+
+Appears more than n/2 times
+
+Boyer–Moore voting algorithm + verification
+
+Missing number 1..n:
+
+Sum formula or XOR method
+
+Repeating number / all missing numbers:
+
+Use frequency array/hashset or marking technique (if values in range)
+
+Pair with given sum:
+
+Hashset approach O(n)
+
+Two-pointer if sorted
+
+Count pairs with sum:
+
+Hashmap frequency counting
+
+Triplet with sum:
+
+Sort + fix one element + two-pointer (O(n²))
+
+Longest increasing subarray (contiguous):
+
+Track current increasing run length and max run length
+
++--------------------------------------------------------------------------------------------------+
+| 🔴 LEVEL 5 — HARD (ADVANCED ARRAY ALGORITHMS) (101–120) |
++--------------------------------------------------------------------------------------------------+
+
+1) LIS / LDS / BITONIC
+
+(Q101–103)
+
+LIS (Longest Increasing Subsequence):
+
+Not necessarily contiguous
+
+Approaches:
+
+DP O(n²)
+
+Patience sorting / binary search O(n log n)
+
+LDS:
+
+Same concept with reversed comparison
+
+Bitonic:
+
+Increase then decrease
+
+Compute LIS ending at i and LDS starting at i, combine
+
+2) MAX/MIN PRODUCT SUBARRAY
+
+(Q104–105)
+
+Needs tracking both max and min ending at index (because negatives flip sign)
+
+Maintain:
+
+max_ending_here
+
+min_ending_here
+
+Update using current value
+
+3) SLIDING WINDOW MAX/MIN
+
+(Q106–107)
+
+Use deque for O(n):
+
+Keep indices in decreasing (for max) or increasing (for min) order
+
+Remove out-of-window indices
+
+4) TWO POINTER / DUTCH FLAG / ALTERNATE REARRANGE
+
+(Q108–110)
+
+Two pointers:
+
+Works best for sorted arrays or partition problems
+
+Dutch national flag:
+
+Partition into 3 groups (0s,1s,2s) with low/mid/high pointers
+
+Rearrange alternatively:
+
+Often means max-min-max-min pattern
+
+Approaches: sorting + weaving, or in-place encoding tricks
+
+5) INTERVAL PROBLEMS
+
+(Q111–115)
+
+Merge intervals:
+
+Sort by start, then merge overlaps
+
+Insert interval:
+
+Insert then merge; or merge on the fly
+
+Overlapping intervals:
+
+Detect overlaps after sorting or sweep line
+
+Minimum platforms:
+
+Sort arrivals and departures; two-pointer sweep
+
+Activity selection:
+
+Greedy by earliest finishing time
+
+6) CLASSIC GREEDY / TWO-POINTER
+
+(Q116–120)
+
+Chocolate distribution:
+
+Sort, minimize window difference
+
+Trapping rain water:
+
+Two-pointer with left_max/right_max or prefix maxima
+
+Container with most water:
+
+Two pointers, move smaller height pointer
+
+Stock buy/sell:
+
+One transaction: track min price so far, max profit
+
+Multiple transactions: sum all positive differences or valley-peak method
+
++--------------------------------------------------------------------------------------------------+
+| 🔴 LEVEL 6 — VERY HARD (2D LISTS / MATRICES) (121–140) |
++--------------------------------------------------------------------------------------------------+
+
+1) MATRIX BASICS: CREATION & TRAVERSAL
+
+(Q121–123)
+
+2D list = list of rows
+
+Row-wise traversal:
+
+Outer loop rows, inner loop columns
+
+Column-wise traversal:
+
+Outer loop columns, inner loop rows
+
+Be careful: rectangular matrix sizes: rows R, cols C
+
+2) TRANSPOSE / ROTATIONS
+
+(Q124–126)
+
+Transpose:
+
+Swap indices: result[c][r] = a[r][c]
+
+In-place transpose possible only for square matrices
+
+Rotate 90 degrees:
+
+Typical: transpose + reverse rows (clockwise) OR reverse columns (anti-clockwise)
+
+Rotate 180 degrees:
+
+Reverse rows then reverse each row (or two 90-degree rotations)
+
+3) TRAVERSAL PATTERNS
+
+(Q127–130)
+
+Spiral:
+
+Maintain boundaries: top, bottom, left, right
+
+Wave:
+
+Alternate direction per row/column
+
+Diagonal:
+
+Collect diagonals by fixed (r+c) or (r-c)
+
+Boundary elements:
+
+Print first/last row and first/last column without duplicates
+
+4) MATRIX CHECKS & OPERATIONS
+
+(Q131–140)
+
+Symmetry:
+
+Square only; check a[i][j] == a[j][i]
+
+Identity matrix:
+
+Diagonal = 1, others = 0
+
+Add matrices:
+
+Element-wise sum; same dimensions required
+
+Multiply matrices:
+
+If A is R×K and B is K×C, result is R×C
+
+Search in matrix:
+
+Linear scan OR optimized methods if sorted
+
+Row-wise sorted matrix search:
+
+Binary search each row OR staircase search if both row/col sorted
+
+Row max / column min:
+
+Traverse accordingly
+
+Count zeros:
+
+Count occurrences of 0 across all cells
+
+Replace diagonal elements:
+
+Modify a[i][i] for main diagonal (and a[i][n-1-i] for secondary)
+
++--------------------------------------------------------------------------------------------------+
+| 🧠 LEVEL 7 — VERY HARD (SIMULATION & SYSTEM THINKING) (141–160) |
++--------------------------------------------------------------------------------------------------+
+
+KEY IDEA: LIST USED AS A DATA STRUCTURE
+
+These tasks model real systems. You must define:
+
+Data representation (what each element means)
+
+Operations (add/update/delete/search)
+
+Constraints (capacity, ordering, priorities)
+
+IMPORTANT BUILDING BLOCKS
+
+Stack (LIFO): use append and pop
+
+Queue (FIFO): list is slow for front pops; conceptually pop(0) but better use deque
+
+Priority queue: maintain sorted list or manually find best item each time
+
+LRU cache: list of recent items + updates on access
+
+SYSTEM DESIGN NOTES
+
+Always decide:
+
+Input format
+
+Commands (ADD/REMOVE/UPDATE/SHOW)
+
+Validation rules
+
+Output formatting
+
+Use helper functions for operations to keep code clean.
+
+(Each of Q141–160 follows this “model + operations + update list” approach.)
+
++--------------------------------------------------------------------------------------------------+
+| 🧠 LEVEL 8 — MINI PROJECTS (LIST-CENTRIC) (161–180) |
++--------------------------------------------------------------------------------------------------+
+
+PROJECT STRUCTURE (COMMON FOR ALL)
+
+Maintain master list as database:
+
+items/records/carts/transactions/logs etc.
+
+Implement:
+
+Add record
+
+View records
+
+Update record
+
+Delete record
+
+Search/filter/sort
+
+Save/load (optional but strong)
+
+Use menus (CLI):
+
+while loop + choice-based commands
+
+Data representation:
+
+Simple: list of lists
+
+Better: list of dicts (clear field names)
