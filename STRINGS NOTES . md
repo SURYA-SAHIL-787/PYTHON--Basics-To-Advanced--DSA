@@ -1,0 +1,566 @@
+====================================================================================================================
+🐍 TOPIC 7 — STRINGS — COMPLETE NOTES (PYTHON)
+0) What is a String in Python?
+
+A string is a sequence of characters, written inside:
+
+'single quotes' or "double quotes" or """triple quotes""" (multi-line)
+
+Strings are immutable:
+
+You cannot change s[0] directly.
+
+Any “modification” creates a new string.
+
+Important Properties
+
+Indexing: s[i] (0-based)
+
+Negative indexing: s[-1] = last char
+
+Slicing: s[start:end:step]
+
+Length: len(s)
+
+Membership: 'a' in s
+
+1) Core Operations You’ll Use Everywhere
+A) Indexing
+s = "python"
+print(s[0])   # p
+print(s[-1])  # n
+
+B) Slicing (SUPER IMPORTANT)
+s = "python"
+print(s[1:4])   # yth  (1 to 3)
+print(s[:3])    # pyt
+print(s[3:])    # hon
+print(s[::-1])  # nohtyp (reverse)
+
+C) Looping Through Characters
+for ch in s:
+    print(ch)
+
+D) Common Built-in / Methods
+
+len(s)
+
+s.upper(), s.lower(), s.title(), s.capitalize()
+
+s.strip(), s.lstrip(), s.rstrip()
+
+s.replace(old, new)
+
+s.count(x)
+
+s.find(x) → first index or -1
+
+s.rfind(x) → last index or -1
+
+s.startswith(prefix), s.endswith(suffix)
+
+s.isalpha(), s.isdigit(), s.isalnum(), s.islower(), s.isupper()
+
+s.split() (words list)
+
+" ".join(list) (join list into string)
+
+2) Character Classification (for counting tasks)
+ASCII value
+ord('A')  # 65
+chr(65)   # 'A'
+
+Checks (very useful)
+ch.isalpha()   # alphabet
+ch.isdigit()   # digit
+ch.isspace()   # space
+
+Vowels
+vowels = "aeiouAEIOU"
+if ch in vowels:
+    ...
+
+3) Frequency Counting (Most common pattern)
+Using Dictionary
+freq = {}
+for ch in s:
+    freq[ch] = freq.get(ch, 0) + 1
+
+Using Counter (shortcut)
+from collections import Counter
+freq = Counter(s)
+
+4) LEVEL 0 — STRING BASICS (01–25) NOTES
+01) Create & Print
+s = "Hello"
+print(s)
+
+02) Length
+print(len(s))
+
+03–04) First & Last Character
+if len(s) > 0:
+    print(s[0])
+    print(s[-1])
+
+05) Character by character
+for ch in s:
+    print(ch)
+
+06) Reverse string
+
+Best: slicing
+
+rev = s[::-1]
+
+07–08) Repeat string
+print(s * 2)
+print(s * 5)
+
+09) Each char new line
+
+Same as loop.
+
+10) Spaces between characters
+print(" ".join(s))
+
+11) ASCII values
+for ch in s:
+    print(ch, ord(ch))
+
+12–14) Upper / Lower / Toggle
+print(s.upper())
+print(s.lower())
+
+toggled = ""
+for ch in s:
+    if ch.islower():
+        toggled += ch.upper()
+    else:
+        toggled += ch.lower()
+
+
+(Also exists: s.swapcase())
+
+15) Remove spaces
+print(s.replace(" ", ""))
+
+16) Replace spaces with underscore
+print(s.replace(" ", "_"))
+
+17–20) Count chars/spaces/digits/alphabets
+chars = len(s)
+spaces = sum(1 for ch in s if ch.isspace())
+digits = sum(1 for ch in s if ch.isdigit())
+alphas = sum(1 for ch in s if ch.isalpha())
+
+21) Check empty string
+if s == "":
+    ...
+# OR
+if not s:
+    ...
+
+22–23) Middle char(s)
+n = len(s)
+if n % 2 == 1:
+    print(s[n//2])
+else:
+    print(s[n//2 - 1], s[n//2])
+
+24) Compare two strings
+
+Lexicographic (dictionary order)
+
+a, b = "abc", "abd"
+print(a == b)
+print(a < b)
+
+25) Copy string
+
+Strings are immutable, direct assignment is fine
+
+b = a
+
+5) LEVEL 1 — VERY BASIC (26–50) NOTES
+26–30) Count vowels/consonants/upper/lower/special
+vowels = "aeiouAEIOU"
+
+v = c = up = low = sp = 0
+for ch in s:
+    if ch.isalpha():
+        if ch in vowels:
+            v += 1
+        else:
+            c += 1
+        if ch.isupper():
+            up += 1
+        if ch.islower():
+            low += 1
+    else:
+        if not ch.isspace():   # if you want space excluded from "special"
+            sp += 1
+
+31–33) Only alphabets / only digits / alphanumeric
+s.isalpha()
+s.isdigit()
+s.isalnum()
+
+
+⚠️ These return False if string has spaces.
+
+34–35) Starts with vowel / ends with digit
+if s and s[0] in vowels: ...
+if s and s[-1].isdigit(): ...
+
+36) Even or odd length
+if len(s) % 2 == 0: ...
+
+37) Count occurrences of a character
+s.count('a')
+
+38–39) First/Last occurrence index
+s.find('a')     # -1 if not found
+s.rfind('a')
+
+40) All occurrences
+indexes = []
+for i, ch in enumerate(s):
+    if ch == target:
+        indexes.append(i)
+
+41–43) Remove first / last / all occurrences
+# remove first
+i = s.find(target)
+if i != -1:
+    s2 = s[:i] + s[i+1:]
+
+# remove last
+i = s.rfind(target)
+if i != -1:
+    s2 = s[:i] + s[i+1:]
+
+# remove all
+s2 = s.replace(target, "")
+
+44) Replace one char with another
+s2 = s.replace(old, new)
+
+45–47) Replace vowels/digits/consonants
+out = []
+for ch in s:
+    if ch in vowels:
+        out.append("*")
+    elif ch.isdigit():
+        out.append("#")
+    elif ch.isalpha():     # consonant
+        out.append("$")
+    else:
+        out.append(ch)
+result = "".join(out)
+
+48) Remove duplicate characters (keep first occurrence order)
+seen = set()
+out = []
+for ch in s:
+    if ch not in seen:
+        seen.add(ch)
+        out.append(ch)
+result = "".join(out)
+
+49) All characters unique?
+unique = len(set(s)) == len(s)
+
+50) Count unique characters
+len(set(s))
+
+6) LEVEL 2 — BASIC (WORDS & SENTENCES) (51–75) NOTES
+Split into words
+
+Default split removes extra spaces:
+
+words = s.split()
+
+51) Count words
+len(words)
+
+52) Print each word new line
+for w in words:
+    print(w)
+
+53) Words in reverse order
+print(" ".join(words[::-1]))
+
+54) Reverse each word individually
+rev_words = [w[::-1] for w in words]
+print(" ".join(rev_words))
+
+55–56) Capitalize first letter of each word / Title case
+print(" ".join(w.capitalize() for w in words))
+print(s.title())
+
+
+⚠️ title() behaves specially with apostrophes etc.
+
+57) Lowercase word list
+lower_words = [w.lower() for w in words]
+
+58–59) Longest / Shortest word
+longest = max(words, key=len)
+shortest = min(words, key=len)
+
+60) Length of each word
+for w in words:
+    print(w, len(w))
+
+61) Frequency of each word
+freq = {}
+for w in words:
+    freq[w] = freq.get(w, 0) + 1
+
+62–63) Most / least frequent word
+most = max(freq, key=freq.get)
+least = min(freq, key=freq.get)
+
+64) Remove duplicate words (keep first occurrence)
+seen = set()
+out = []
+for w in words:
+    if w not in seen:
+        seen.add(w)
+        out.append(w)
+result = " ".join(out)
+
+65) Replace a word
+result = " ".join(new if w == old else w for w in words)
+
+66) Remove a specific word
+result = " ".join(w for w in words if w != target)
+
+67) Sentence palindrome (ignore spaces)
+t = "".join(ch.lower() for ch in s if not ch.isspace())
+is_pal = (t == t[::-1])
+
+68) Count vowels in each word
+for w in words:
+    count = sum(1 for ch in w if ch in vowels)
+    print(w, count)
+
+69–70) Words starting with vowel / ending with consonant
+start_vowel = [w for w in words if w and w[0] in vowels]
+
+end_consonant = [w for w in words
+                 if w and w[-1].isalpha() and w[-1] not in vowels]
+
+71) Sort words alphabetically
+print(sorted(words, key=str.lower))
+
+72) Sort by length
+print(sorted(words, key=len))
+
+73–74) Common / uncommon words between two sentences
+set1 = set(s1.split())
+set2 = set(s2.split())
+common = set1 & set2
+uncommon = set1 ^ set2   # symmetric difference
+
+75) Merge two sentences word by word
+w1 = s1.split()
+w2 = s2.split()
+
+merged = []
+m = min(len(w1), len(w2))
+for i in range(m):
+    merged.append(w1[i])
+    merged.append(w2[i])
+
+merged.extend(w1[m:])
+merged.extend(w2[m:])
+
+result = " ".join(merged)
+
+7) LEVEL 3 — BASIC+ (PATTERNS & SUBSTRINGS) (76–90) NOTES
+76) Print all substrings
+
+All substrings = all s[i:j] where 0<=i<j<=n
+
+n = len(s)
+for i in range(n):
+    for j in range(i+1, n+1):
+        print(s[i:j])
+
+77) Count total substrings
+
+If length = n, total substrings = n*(n+1)/2
+
+n = len(s)
+total = n*(n+1)//2
+
+78) Count palindrome substrings
+
+Brute (O(n^3)):
+
+Generate substring + check palindrome.
+Better method:
+
+Expand around center (O(n^2)).
+
+Expand-around-center idea:
+Each palindrome expands from:
+
+single center (odd)
+
+gap center (even)
+
+def count_pal_substrings(s):
+    n = len(s)
+    count = 0
+
+    def expand(l, r):
+        nonlocal count
+        while l >= 0 and r < n and s[l] == s[r]:
+            count += 1
+            l -= 1
+            r += 1
+
+    for i in range(n):
+        expand(i, i)       # odd
+        expand(i, i+1)     # even
+
+    return count
+
+79–80) Longest / shortest palindrome substring
+
+Longest: expand and track max length.
+
+Shortest palindrome substring (usually means length 1 minimum)
+If they mean “shortest palindrome length > 1”, then check expansions and track min ≥ 2.
+
+81) Rotation check
+
+b is rotation of a if:
+
+same length
+
+b is substring of a+a
+
+is_rot = (len(a) == len(b)) and (b in (a + a))
+
+82) Anagram check
+
+Two strings are anagrams if sorted letters same (ignore spaces/case if needed)
+
+def norm(x):
+    return sorted(ch.lower() for ch in x if ch.isalpha())
+
+is_ana = norm(a) == norm(b)
+
+
+Or use frequency dict / Counter.
+
+83) Group anagrams (list of words)
+
+Key = sorted word characters:
+
+from collections import defaultdict
+
+groups = defaultdict(list)
+for w in words:
+    key = "".join(sorted(w))
+    groups[key].append(w)
+
+84) Can string form a palindrome?
+
+Condition:
+
+At most one character has odd frequency.
+
+from collections import Counter
+freq = Counter(s)
+odd = sum(1 for v in freq.values() if v % 2 == 1)
+possible = odd <= 1
+
+85) First non-repeating character
+from collections import Counter
+freq = Counter(s)
+for ch in s:
+    if freq[ch] == 1:
+        ans = ch
+        break
+else:
+    ans = None
+
+86) First repeating character
+seen = set()
+for ch in s:
+    if ch in seen:
+        ans = ch
+        break
+    seen.add(ch)
+else:
+    ans = None
+
+87–88) All repeating chars / freq > 1
+from collections import Counter
+freq = Counter(s)
+repeating = [ch for ch, c in freq.items() if c > 1]
+
+89) Remove adjacent duplicates
+
+Example: "aabbcca" → remove adjacent duplicates (keep one each block): "abca"
+
+if not s:
+    result = s
+else:
+    out = [s[0]]
+    for i in range(1, len(s)):
+        if s[i] != s[i-1]:
+            out.append(s[i])
+    result = "".join(out)
+
+
+(Another version removes pairs repeatedly using stack, depends on question statement.)
+
+90) Compress string using Run-Length Encoding (RLE)
+
+Example: "aaabbc" → "a3b2c1"
+
+def rle(s):
+    if not s:
+        return ""
+    out = []
+    count = 1
+    for i in range(1, len(s)):
+        if s[i] == s[i-1]:
+            count += 1
+        else:
+            out.append(s[i-1] + str(count))
+            count = 1
+    out.append(s[-1] + str(count))
+    return "".join(out)
+
+8) Most Important “Exam Patterns” You Must Memorize
+Pattern A: Count something
+count = 0
+for ch in s:
+    if condition(ch):
+        count += 1
+
+Pattern B: Build a new string safely
+
+✅ Use list + join (fast)
+
+out = []
+for ch in s:
+    out.append(transformed_ch)
+result = "".join(out)
+
+Pattern C: Frequency dictionary
+freq = {}
+for x in items:
+    freq[x] = freq.get(x, 0) + 1
+
+Pattern D: Words handling
+words = s.split()
+# process words
+result = " ".join(words)
