@@ -1,0 +1,229 @@
+
+================================================================================
+                     🐍 TOPIC 13 — MODULES & PACKAGES
+================================================================================
+
++------------------------------------------------------------------------------+
+|                🟢 LEVEL 0 — BASIC (FIRST MODULE STEPS)                        |
++------------------------------------------------------------------------------+
+|   1) CREATE A PYTHON FILE AND IMPORT IT AS A MODULE.                          |
+|   2) DEFINE A FUNCTION IN A MODULE AND CALL IT.                               |
+|   3) DEFINE A VARIABLE IN A MODULE AND ACCESS IT.                             |
+|   4) DEFINE MULTIPLE FUNCTIONS IN A MODULE.                                   |
+|   5) IMPORT A MODULE USING IMPORT MODULE.                                     |
+|   6) IMPORT A MODULE USING IMPORT MODULE AS ALIAS.                            |
+|   7) IMPORT A SPECIFIC FUNCTION USING FROM MODULE IMPORT FUNC.                |
+|   8) IMPORT MULTIPLE FUNCTIONS FROM A MODULE.                                 |
+|   9) IMPORT EVERYTHING USING FROM MODULE IMPORT *.                            |
+|  10) PRINT MODULE NAME USING __NAME__.                                        |
+|  11) RUN MODULE DIRECTLY.                                                    |
+|  12) IMPORT MODULE WITHOUT EXECUTING MAIN CODE.                               |
+|  13) USE IF __NAME__ == "__MAIN__".                                           |
+|  14) CREATE MODULE FOR MATH OPERATIONS.                                       |
+|  15) CREATE MODULE FOR STRING OPERATIONS.                                     |
+|  16) CREATE MODULE FOR LIST OPERATIONS.                                       |
+|  17) CREATE MODULE FOR VALIDATION FUNCTIONS.                                  |
+|  18) CREATE MODULE FOR PRINTING UTILITIES.                                    |
+|  19) CREATE MODULE FOR CONSTANTS.                                             |
+|  20) ACCESS CONSTANTS FROM MODULE.                                            |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|            🟢 LEVEL 1 — VERY BASIC (STANDARD LIBRARY MODULES)                  |
++------------------------------------------------------------------------------+
+|  21) USE MATH MODULE FOR SQUARE ROOT.                                         |
+|  22) USE MATH MODULE FOR POWER.                                               |
+|  23) USE MATH MODULE FOR FACTORIAL.                                           |
+|  24) USE MATH MODULE FOR FLOOR AND CEIL.                                      |
+|  25) USE RANDOM MODULE TO GENERATE RANDOM NUMBER.                             |
+|  26) GENERATE RANDOM NUMBER IN RANGE.                                         |
+|  27) GENERATE RANDOM CHOICE FROM LIST.                                        |
+|  28) SHUFFLE LIST USING RANDOM MODULE.                                        |
+|  29) USE DATETIME MODULE TO GET CURRENT DATE.                                 |
+|  30) USE DATETIME MODULE TO GET CURRENT TIME.                                 |
+|  31) FORMAT DATE AND TIME.                                                    |
+|  32) CALCULATE DIFFERENCE BETWEEN TWO DATES.                                  |
+|  33) USE TIME MODULE FOR DELAY.                                               |
+|  34) MEASURE EXECUTION TIME.                                                  |
+|  35) USE SYS MODULE TO READ ARGUMENTS.                                        |
+|  36) USE SYS.EXIT() TO EXIT PROGRAM.                                          |
+|  37) USE OS MODULE TO GET CURRENT DIRECTORY.                                  |
+|  38) USE OS MODULE TO LIST FILES.                                             |
+|  39) USE OS MODULE TO CREATE DIRECTORY.                                       |
+|  40) USE OS MODULE TO DELETE FILE.                                            |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                 🟡 LEVEL 2 — BASIC (CUSTOM MODULE DESIGN)                      |
++------------------------------------------------------------------------------+
+|  41) SPLIT A LARGE PROGRAM INTO MULTIPLE MODULES.                             |
+|  42) CREATE SEPARATE MODULES FOR INPUT, LOGIC, OUTPUT.                        |
+|  43) IMPORT CUSTOM MODULE INTO MAIN PROGRAM.                                  |
+|  44) SHARE VARIABLES ACROSS MODULES.                                          |
+|  45) AVOID CIRCULAR IMPORTS.                                                  |
+|  46) REFACTOR CODE INTO MODULES.                                              |
+|  47) CREATE REUSABLE UTILITY MODULE.                                          |
+|  48) CREATE REUSABLE VALIDATION MODULE.                                       |
+|  49) CREATE REUSABLE MATH HELPER MODULE.                                      |
+|  50) CREATE REUSABLE STRING HELPER MODULE.                                    |
+|  51) ORGANIZE RELATED FUNCTIONS INTO MODULE.                                  |
+|  52) RENAME IMPORTED FUNCTIONS.                                               |
+|  53) CONTROL MODULE PUBLIC API USING __ALL__.                                 |
+|  54) HIDE INTERNAL FUNCTIONS.                                                 |
+|  55) RELOAD MODULE DURING DEVELOPMENT.                                        |
+|  56) TEST MODULE INDEPENDENTLY.                                               |
+|  57) DOCUMENT MODULE WITH DOCSTRINGS.                                         |
+|  58) ADD COMMENTS EXPLAINING MODULE PURPOSE.                                  |
+|  59) PRINT MODULE DOCUMENTATION.                                              |
+|  60) DEBUG IMPORT ERRORS.                                                     |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|           🟡 LEVEL 3 — BASIC+ (PACKAGES & DIRECTORY STRUCTURE)                 |
++------------------------------------------------------------------------------+
+|  61) CREATE A PACKAGE WITH __INIT__.PY.                                       |
+|  62) IMPORT MODULE FROM PACKAGE.                                              |
+|  63) IMPORT SUBMODULE FROM PACKAGE.                                           |
+|  64) USE RELATIVE IMPORTS INSIDE PACKAGE.                                     |
+|  65) USE ABSOLUTE IMPORTS INSIDE PACKAGE.                                     |
+|  66) CREATE NESTED PACKAGES.                                                  |
+|  67) ORGANIZE PROJECT USING PACKAGES.                                         |
+|  68) SEPARATE BUSINESS LOGIC INTO PACKAGES.                                   |
+|  69) SEPARATE UTILITIES INTO PACKAGES.                                        |
+|  70) SEPARATE CONFIGURATION INTO PACKAGE.                                     |
+|  71) CONTROL PACKAGE INITIALIZATION.                                          |
+|  72) EXPOSE SELECTED MODULES VIA __INIT__.PY.                                 |
+|  73) AVOID NAME CONFLICTS IN PACKAGES.                                        |
+|  74) USE SAME MODULE NAME IN DIFFERENT PACKAGES.                              |
+|  75) BUILD MULTI-LEVEL PACKAGE HIERARCHY.                                     |
+|  76) REFACTOR FLAT CODE INTO PACKAGES.                                        |
+|  77) TEST PACKAGE IMPORTS.                                                    |
+|  78) DEBUG PACKAGE IMPORT PATHS.                                              |
+|  79) PACKAGE CONSTANTS MODULE.                                                |
+|  80) PACKAGE CONFIGURATION LOADER.                                            |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|              🟠 LEVEL 4 — MEDIUM (ADVANCED IMPORT MECHANICS)                  |
++------------------------------------------------------------------------------+
+|  81) INSPECT MODULE SEARCH PATH.                                              |
+|  82) MODIFY SYS.PATH DYNAMICALLY.                                             |
+|  83) USE ENVIRONMENT VARIABLES FOR IMPORTS.                                   |
+|  84) UNDERSTAND IMPORT CACHING.                                               |
+|  85) RELOAD MODULE USING IMPORTLIB.                                           |
+|  86) IMPORT MODULES CONDITIONALLY.                                            |
+|  87) LAZY IMPORT HEAVY MODULES.                                               |
+|  88) DYNAMIC IMPORT USING IMPORTLIB.                                          |
+|  89) IMPORT MODULE BY STRING NAME.                                            |
+|  90) PLUGIN-STYLE DYNAMIC LOADING.                                            |
+|  91) BUILD OPTIONAL FEATURE MODULES.                                          |
+|  92) HANDLE MISSING MODULE GRACEFULLY.                                        |
+|  93) CREATE FALLBACK MODULE LOGIC.                                            |
+|  94) IMPORT VERSIONED MODULES.                                                |
+|  95) DETECT MODULE VERSION.                                                   |
+|  96) HANDLE IMPORT ERRORS.                                                    |
+|  97) LOG MODULE LOAD EVENTS.                                                  |
+|  98) DEBUG IMPORT RESOLUTION ORDER.                                           |
+|  99) PREVENT DUPLICATE IMPORTS.                                               |
+| 100) CONTROL IMPORT SIDE EFFECTS.                                             |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                🔴 LEVEL 5 — HARD (REAL-WORLD MODULE USAGE)                    |
++------------------------------------------------------------------------------+
+| 101) BUILD CLI APP USING MODULES.                                             |
+| 102) BUILD CALCULATOR USING MODULES.                                          |
+| 103) BUILD VALIDATION FRAMEWORK USING MODULES.                                |
+| 104) BUILD LOGGING FRAMEWORK USING MODULES.                                   |
+| 105) BUILD CONFIGURATION SYSTEM USING MODULES.                                |
+| 106) BUILD AUTHENTICATION SYSTEM USING MODULES.                               |
+| 107) BUILD DATA PROCESSING PIPELINE USING MODULES.                            |
+| 108) BUILD GAME ENGINE USING MODULES.                                         |
+| 109) BUILD MENU SYSTEM USING MODULES.                                         |
+| 110) BUILD MICRO-LIBRARY USING MODULES.                                       |
+| 111) SEPARATE FRONTEND AND BACKEND MODULES.                                   |
+| 112) SEPARATE CORE AND HELPER MODULES.                                        |
+| 113) BUILD LAYERED ARCHITECTURE.                                              |
+| 114) BUILD SERVICE-BASED ARCHITECTURE.                                        |
+| 115) BUILD PLUGIN-BASED SYSTEM.                                               |
+| 116) BUILD EXTENSIBLE SYSTEM USING MODULES.                                   |
+| 117) BUILD TEST MODULES.                                                      |
+| 118) MOCK MODULES FOR TESTING.                                                |
+| 119) REPLACE MODULE IMPLEMENTATION DYNAMICALLY.                               |
+| 120) VERSION CONTROL MODULE CHANGES.                                          |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|          🔴 LEVEL 6 — VERY HARD (PACKAGE DESIGN & DISTRIBUTION)               |
++------------------------------------------------------------------------------+
+| 121) DESIGN CLEAN PACKAGE ARCHITECTURE.                                       |
+| 122) BUILD REUSABLE PYTHON PACKAGE.                                           |
+| 123) ADD PACKAGE METADATA.                                                    |
+| 124) STRUCTURE PACKAGE FOR SCALABILITY.                                       |
+| 125) DESIGN API-FIRST MODULES.                                                |
+| 126) DESIGN BACKWARD-COMPATIBLE MODULES.                                      |
+| 127) REFACTOR MONOLITH INTO PACKAGES.                                         |
+| 128) DESIGN DEPENDENCY GRAPH.                                                 |
+| 129) AVOID TIGHT COUPLING BETWEEN MODULES.                                    |
+| 130) APPLY SOLID PRINCIPLES TO MODULES.                                       |
+| 131) BUILD SHARED CORE PACKAGE.                                               |
+| 132) BUILD DOMAIN-SPECIFIC PACKAGES.                                          |
+| 133) CREATE INTERNAL VS PUBLIC PACKAGES.                                      |
+| 134) HANDLE PACKAGE VERSIONING.                                               |
+| 135) MANAGE BREAKING CHANGES.                                                 |
+| 136) PACKAGE CONFIGURATION MANAGEMENT.                                        |
+| 137) BUILD PLUGIN DISCOVERY MECHANISM.                                        |
+| 138) LOAD PLUGINS DYNAMICALLY.                                                |
+| 139) SANDBOX PLUGIN EXECUTION.                                                |
+| 140) TEST PACKAGE ISOLATION.                                                  |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                🧠 LEVEL 7 — SYSTEM & ARCHITECTURE THINKING                     |
++------------------------------------------------------------------------------+
+| 141) BUILD FRAMEWORK-STYLE PROJECT STRUCTURE.                                 |
+| 142) BUILD MVC-LIKE STRUCTURE USING MODULES.                                  |
+| 143) BUILD LAYERED CLEAN ARCHITECTURE.                                        |
+| 144) BUILD HEXAGONAL ARCHITECTURE PROTOTYPE.                                  |
+| 145) BUILD EVENT-DRIVEN ARCHITECTURE USING MODULES.                           |
+| 146) BUILD MICROSERVICE-LIKE MODULE SYSTEM.                                   |
+| 147) BUILD REUSABLE SDK.                                                      |
+| 148) BUILD INTERNAL DEVELOPER LIBRARY.                                        |
+| 149) BUILD SHARED UTILITIES PLATFORM.                                         |
+| 150) BUILD FEATURE-BASED PACKAGE LAYOUT.                                      |
+| 151) BUILD CONFIGURATION-DRIVEN MODULES.                                      |
+| 152) BUILD ENVIRONMENT-SPECIFIC MODULES.                                      |
+| 153) BUILD MULTI-TENANT MODULE SYSTEM.                                        |
+| 154) BUILD EXTENSION POINTS.                                                  |
+| 155) BUILD DEPENDENCY INJECTION USING MODULES.                                |
+| 156) BUILD TESTABLE MODULAR SYSTEM.                                           |
+| 157) BUILD MAINTAINABLE CODEBASE.                                             |
+| 158) BUILD SCALABLE PROJECT LAYOUT.                                           |
+| 159) BUILD LONG-TERM MAINTAINABLE MODULES.                                    |
+| 160) BUILD ENTERPRISE-GRADE MODULE SYSTEM.                                    |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|               🧠 LEVEL 8 — MINI PROJECTS (MODULE / PACKAGE HEAVY)             |
++------------------------------------------------------------------------------+
+| 161) MODULAR CALCULATOR APPLICATION.                                          |
+| 162) MODULAR STUDENT MANAGEMENT SYSTEM.                                       |
+| 163) MODULAR INVENTORY SYSTEM.                                                |
+| 164) MODULAR BANKING APPLICATION.                                             |
+| 165) MODULAR CLI FRAMEWORK.                                                   |
+| 166) MODULAR GAME ENGINE.                                                    |
+| 167) MODULAR VALIDATION LIBRARY.                                              |
+| 168) MODULAR CONFIGURATION MANAGER.                                           |
+| 169) MODULAR LOGGING FRAMEWORK.                                               |
+| 170) MODULAR AUTHENTICATION SYSTEM.                                           |
+| 171) MODULAR DATA PROCESSING ENGINE.                                          |
+| 172) MODULAR PLUGIN SYSTEM.                                                   |
+| 173) MODULAR TASK SCHEDULER.                                                  |
+| 174) MODULAR MONITORING SYSTEM.                                               |
+| 175) MODULAR ANALYTICS ENGINE.                                                |
+| 176) MODULAR SDK.                                                             |
+| 177) MODULAR AUTOMATION TOOL.                                                 |
+| 178) MODULAR APPLICATION TEMPLATE.                                            |
+| 179) MODULAR FRAMEWORK SKELETON.                                              |
+| 180) FULL MODULAR PYTHON APPLICATION.                                         |
++------------------------------------------------------------------------------+
