@@ -1,0 +1,228 @@
+================================================================================
+                 🐍 TOPIC 15 — OOP BASICS (CLASSES & OBJECTS)
+================================================================================
+
++------------------------------------------------------------------------------+
+|            🟢 LEVEL 0 — BASIC (FIRST CONTACT WITH CLASSES)                    |
++------------------------------------------------------------------------------+
+|   1) CREATE A CLASS WITH NO CONTENT.                                          |
+|   2) CREATE AN OBJECT OF A CLASS.                                             |
+|   3) PRINT OBJECT REFERENCE.                                                  |
+|   4) DEFINE A CLASS WITH ONE ATTRIBUTE.                                       |
+|   5) ASSIGN VALUE TO ATTRIBUTE USING OBJECT.                                  |
+|   6) ACCESS ATTRIBUTE USING OBJECT.                                           |
+|   7) MODIFY ATTRIBUTE VALUE.                                                  |
+|   8) CREATE MULTIPLE OBJECTS OF SAME CLASS.                                   |
+|   9) STORE DIFFERENT VALUES IN DIFFERENT OBJECTS.                             |
+|  10) PRINT ATTRIBUTES OF MULTIPLE OBJECTS.                                    |
+|  11) CREATE CLASS WITH TWO ATTRIBUTES.                                        |
+|  12) INITIALIZE ATTRIBUTES MANUALLY.                                          |
+|  13) CREATE CLASS WITH DEFAULT ATTRIBUTES.                                    |
+|  14) ADD ATTRIBUTE DYNAMICALLY TO OBJECT.                                     |
+|  15) DELETE ATTRIBUTE FROM OBJECT.                                            |
+|  16) CHECK IF OBJECT HAS ATTRIBUTE.                                           |
+|  17) PRINT OBJECT TYPE.                                                       |
+|  18) COMPARE TWO OBJECTS.                                                     |
+|  19) CHECK OBJECT IDENTITY.                                                   |
+|  20) DELETE AN OBJECT.                                                        |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|       🟢 LEVEL 1 — VERY BASIC (CONSTRUCTOR & INSTANCE VARIABLES)              |
++------------------------------------------------------------------------------+
+|  21) CREATE CLASS WITH __INIT__ METHOD.                                       |
+|  22) INITIALIZE ATTRIBUTES USING CONSTRUCTOR.                                 |
+|  23) PASS ARGUMENTS TO CONSTRUCTOR.                                           |
+|  24) CREATE OBJECT USING CONSTRUCTOR.                                         |
+|  25) PRINT OBJECT ATTRIBUTES AFTER INITIALIZATION.                            |
+|  26) MODIFY INSTANCE VARIABLES.                                               |
+|  27) CREATE MULTIPLE INSTANCES WITH DIFFERENT DATA.                           |
+|  28) USE SELF KEYWORD CORRECTLY.                                              |
+|  29) FORGET SELF AND OBSERVE ERROR.                                           |
+|  30) FIX SELF RELATED ERROR.                                                  |
+|  31) ADD INSTANCE METHOD.                                                     |
+|  32) CALL INSTANCE METHOD USING OBJECT.                                       |
+|  33) ACCESS INSTANCE VARIABLES INSIDE METHOD.                                 |
+|  34) MODIFY INSTANCE VARIABLES INSIDE METHOD.                                 |
+|  35) PRINT OBJECT STATE USING METHOD.                                         |
+|  36) ADD MULTIPLE INSTANCE METHODS.                                           |
+|  37) CALL ONE METHOD FROM ANOTHER.                                            |
+|  38) RETURN VALUE FROM INSTANCE METHOD.                                       |
+|  39) STORE RETURNED VALUE IN VARIABLE.                                        |
+|  40) CALL METHOD MULTIPLE TIMES.                                              |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|               🟡 LEVEL 2 — BASIC (CLASS VARIABLES & METHODS)                  |
++------------------------------------------------------------------------------+
+|  41) DEFINE CLASS VARIABLE.                                                   |
+|  42) ACCESS CLASS VARIABLE USING CLASS.                                       |
+|  43) ACCESS CLASS VARIABLE USING OBJECT.                                      |
+|  44) MODIFY CLASS VARIABLE.                                                   |
+|  45) OBSERVE EFFECT ON ALL OBJECTS.                                           |
+|  46) CREATE INSTANCE VARIABLE WITH SAME NAME.                                 |
+|  47) COMPARE CLASS VS INSTANCE VARIABLE.                                      |
+|  48) USE CLASS VARIABLE AS COUNTER.                                           |
+|  49) COUNT NUMBER OF OBJECTS CREATED.                                         |
+|  50) TRACK SHARED DATA USING CLASS VARIABLE.                                  |
+|  51) CREATE CLASS METHOD USING @CLASSMETHOD.                                  |
+|  52) ACCESS CLASS VARIABLE IN CLASS METHOD.                                   |
+|  53) MODIFY CLASS VARIABLE USING CLASS METHOD.                                |
+|  54) CALL CLASS METHOD USING CLASS.                                           |
+|  55) CALL CLASS METHOD USING OBJECT.                                          |
+|  56) CREATE FACTORY METHOD USING CLASS METHOD.                                |
+|  57) USE CLASS METHOD TO CREATE ALTERNATIVE CONSTRUCTOR.                      |
+|  58) CREATE STATIC METHOD USING @STATICMETHOD.                                |
+|  59) CALL STATIC METHOD.                                                      |
+|  60) USE STATIC METHOD FOR UTILITY LOGIC.                                     |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|           🟡 LEVEL 3 — BASIC+ (METHOD TYPES & OBJECT BEHAVIOR)                |
++------------------------------------------------------------------------------+
+|  61) DIFFERENTIATE INSTANCE, CLASS, STATIC METHODS.                           |
+|  62) CALL INSTANCE METHOD INCORRECTLY AND FIX.                                |
+|  63) CALL STATIC METHOD INCORRECTLY AND FIX.                                  |
+|  64) STORE METHOD REFERENCE IN VARIABLE.                                      |
+|  65) PASS OBJECT AS PARAMETER TO FUNCTION.                                    |
+|  66) PASS OBJECT TO ANOTHER OBJECT’S METHOD.                                  |
+|  67) COMPARE TWO OBJECTS BY ATTRIBUTE.                                        |
+|  68) IMPLEMENT EQUALITY CHECK MANUALLY.                                       |
+|  69) OVERRIDE __EQ__.                                                         |
+|  70) PRINT OBJECT USING DEFAULT REPRESENTATION.                               |
+|  71) OVERRIDE __STR__.                                                        |
+|  72) OVERRIDE __REPR__.                                                       |
+|  73) OBSERVE DIFFERENCE BETWEEN __STR__ AND __REPR__.                         |
+|  74) ADD DEBUG PRINT INSIDE CLASS.                                            |
+|  75) TRACE METHOD CALLS.                                                      |
+|  76) TRACK OBJECT STATE CHANGES.                                              |
+|  77) IMPLEMENT RESET METHOD.                                                  |
+|  78) IMPLEMENT UPDATE METHOD.                                                 |
+|  79) IMPLEMENT DISPLAY METHOD.                                                |
+|  80) IMPLEMENT VALIDATION METHOD.                                             |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|           🟠 LEVEL 4 — MEDIUM (ENCAPSULATION & ACCESS CONTROL)                |
++------------------------------------------------------------------------------+
+|  81) CREATE PRIVATE ATTRIBUTE USING _.                                        |
+|  82) CREATE PRIVATE ATTRIBUTE USING __.                                       |
+|  83) ACCESS PROTECTED ATTRIBUTE.                                              |
+|  84) ATTEMPT TO ACCESS PRIVATE ATTRIBUTE AND OBSERVE ERROR.                   |
+|  85) ACCESS PRIVATE ATTRIBUTE USING NAME MANGLING.                            |
+|  86) CREATE GETTER METHOD.                                                    |
+|  87) CREATE SETTER METHOD.                                                    |
+|  88) VALIDATE DATA IN SETTER.                                                 |
+|  89) PREVENT INVALID ASSIGNMENT.                                              |
+|  90) MAKE ATTRIBUTE READ-ONLY.                                                |
+|  91) HIDE INTERNAL IMPLEMENTATION.                                            |
+|  92) CONTROL ACCESS USING METHODS.                                            |
+|  93) IMPLEMENT ENCAPSULATED MODEL.                                            |
+|  94) SECURE SENSITIVE ATTRIBUTES.                                             |
+|  95) TRACK ATTRIBUTE CHANGES.                                                 |
+|  96) ADD LOGGING INSIDE SETTER.                                               |
+|  97) RAISE EXCEPTION ON INVALID VALUE.                                        |
+|  98) ENFORCE BUSINESS RULES.                                                  |
+|  99) PROTECT OBJECT INTEGRITY.                                                |
+| 100) DESIGN SAFE DATA MODEL.                                                  |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|           🔴 LEVEL 5 — HARD (OBJECT INTERACTION & COMPOSITION)                |
++------------------------------------------------------------------------------+
+| 101) CREATE CLASS CONTAINING ANOTHER OBJECT.                                  |
+| 102) PASS OBJECT AS CONSTRUCTOR PARAMETER.                                    |
+| 103) STORE OBJECT INSIDE ANOTHER OBJECT.                                      |
+| 104) CALL METHODS OF CONTAINED OBJECT.                                        |
+| 105) BUILD RELATIONSHIP BETWEEN CLASSES.                                      |
+| 106) ONE-TO-ONE RELATIONSHIP.                                                 |
+| 107) ONE-TO-MANY RELATIONSHIP.                                                |
+| 108) MANY-TO-ONE RELATIONSHIP.                                                |
+| 109) REPLACE CONTAINED OBJECT DYNAMICALLY.                                    |
+| 110) AGGREGATE MULTIPLE OBJECTS.                                              |
+| 111) BUILD MANAGER CLASS.                                                     |
+| 112) MAINTAIN LIST OF OBJECTS.                                                |
+| 113) SEARCH OBJECT BY ATTRIBUTE.                                              |
+| 114) UPDATE OBJECT IN COLLECTION.                                             |
+| 115) DELETE OBJECT FROM COLLECTION.                                           |
+| 116) IMPLEMENT REGISTRY OF OBJECTS.                                           |
+| 117) TRACK OBJECT LIFECYCLE.                                                  |
+| 118) IMPLEMENT OWNERSHIP LOGIC.                                               |
+| 119) BUILD COMPOSITE OBJECT.                                                  |
+| 120) DESIGN OBJECT COLLABORATION.                                             |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|           🔴 LEVEL 6 — VERY HARD (OBJECT STATE & BEHAVIOR)                    |
++------------------------------------------------------------------------------+
+| 121) TRACK OBJECT STATE CHANGES.                                              |
+| 122) IMPLEMENT STATE FLAGS.                                                   |
+| 123) IMPLEMENT ENABLE/DISABLE LOGIC.                                          |
+| 124) IMPLEMENT ACTIVATION/DEACTIVATION LOGIC.                                 |
+| 125) IMPLEMENT STATUS TRANSITIONS.                                            |
+| 126) VALIDATE STATE TRANSITIONS.                                              |
+| 127) PREVENT INVALID TRANSITIONS.                                             |
+| 128) IMPLEMENT FINITE STATE LOGIC.                                            |
+| 129) RESET OBJECT STATE.                                                      |
+| 130) SNAPSHOT OBJECT STATE.                                                   |
+| 131) RESTORE OBJECT STATE.                                                    |
+| 132) CLONE OBJECT (SHALLOW).                                                  |
+| 133) CLONE OBJECT (DEEP).                                                     |
+| 134) COMPARE CLONED OBJECTS.                                                  |
+| 135) IMPLEMENT COPY PROTOCOL.                                                 |
+| 136) DETECT SHARED REFERENCES.                                                |
+| 137) AVOID UNINTENDED MUTATION.                                               |
+| 138) DESIGN IMMUTABLE-LIKE OBJECT.                                            |
+| 139) FREEZE OBJECT STATE.                                                     |
+| 140) BUILD STATE-AWARE OBJECT.                                                |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|        🧠 LEVEL 7 — VERY HARD (DESIGN THINKING & BEST PRACTICES)              |
++------------------------------------------------------------------------------+
+| 141) DESIGN CLEAN CLASS INTERFACE.                                            |
+| 142) MINIMIZE PUBLIC ATTRIBUTES.                                              |
+| 143) SEPARATE DATA AND BEHAVIOR.                                              |
+| 144) APPLY SINGLE RESPONSIBILITY PRINCIPLE.                                   |
+| 145) AVOID GOD OBJECTS.                                                       |
+| 146) REFACTOR PROCEDURAL CODE INTO CLASSES.                                   |
+| 147) REFACTOR LARGE CLASS INTO SMALLER CLASSES.                               |
+| 148) APPLY DRY PRINCIPLE IN CLASSES.                                          |
+| 149) IMPROVE CLASS COHESION.                                                  |
+| 150) REDUCE COUPLING BETWEEN CLASSES.                                         |
+| 151) DESIGN REUSABLE CLASS.                                                   |
+| 152) DESIGN EXTENSIBLE CLASS.                                                 |
+| 153) DESIGN TESTABLE CLASS.                                                   |
+| 154) DESIGN MAINTAINABLE CLASS.                                               |
+| 155) DESIGN DOMAIN MODEL USING CLASSES.                                       |
+| 156) DESIGN VALUE OBJECTS.                                                    |
+| 157) DESIGN ENTITY OBJECTS.                                                   |
+| 158) DESIGN SERVICE OBJECTS.                                                  |
+| 159) DESIGN DATA TRANSFER OBJECTS.                                            |
+| 160) DESIGN CLEAN OOP STRUCTURE.                                              |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|             🧠 LEVEL 8 — MINI PROJECTS (OOP BASICS HEAVY)                     |
++------------------------------------------------------------------------------+
+| 161) STUDENT CLASS SYSTEM.                                                    |
+| 162) EMPLOYEE CLASS SYSTEM.                                                   |
+| 163) BANK ACCOUNT CLASS.                                                      |
+| 164) PRODUCT & INVENTORY CLASSES.                                             |
+| 165) SHOPPING CART CLASS.                                                     |
+| 166) LIBRARY BOOK CLASS.                                                      |
+| 167) USER PROFILE CLASS.                                                      |
+| 168) LOGIN CREDENTIAL CLASS.                                                  |
+| 169) CONFIGURATION CLASS.                                                     |
+| 170) GAME PLAYER CLASS.                                                       |
+| 171) QUIZ QUESTION CLASS.                                                     |
+| 172) COURSE & ENROLLMENT CLASS.                                               |
+| 173) TICKET BOOKING CLASSES.                                                  |
+| 174) ATM ACCOUNT CLASS.                                                       |
+| 175) EXPENSE TRACKER CLASSES.                                                 |
+| 176) CONTACT BOOK CLASSES.                                                    |
+| 177) TASK MANAGER CLASSES.                                                    |
+| 178) SETTINGS MANAGER CLASS.                                                  |
+| 179) CLI APP USING CLASSES.                                                   |
+| 180) FULL OOP-BASED APPLICATION.                                              |
++------------------------------------------------------------------------------+
