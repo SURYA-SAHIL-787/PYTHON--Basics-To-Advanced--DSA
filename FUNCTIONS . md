@@ -1,0 +1,253 @@
+================================================================================
+                         🐍 TOPIC 12 — FUNCTIONS
+================================================================================
+
++------------------------------------------------------------------------------+
+|                     🟢 LEVEL 0 — BASIC (FIRST FUNCTIONS)                      |
++------------------------------------------------------------------------------+
+|   1) WRITE A FUNCTION THAT PRINTS “HELLO WORLD”.                              |
+|   2) WRITE A FUNCTION THAT PRINTS YOUR NAME.                                  |
+|   3) WRITE A FUNCTION THAT PRINTS NUMBERS FROM 1 TO 10.                       |
+|   4) WRITE A FUNCTION THAT PRINTS EVEN NUMBERS FROM 1 TO 20.                  |
+|   5) WRITE A FUNCTION THAT PRINTS ODD NUMBERS FROM 1 TO 20.                   |
+|   6) WRITE A FUNCTION THAT PRINTS A LINE OF STARS.                            |
+|   7) WRITE A FUNCTION THAT PRINTS A SQUARE OF STARS.                          |
+|   8) WRITE A FUNCTION THAT PRINTS A RIGHT TRIANGLE OF STARS.                  |
+|   9) WRITE A FUNCTION THAT PRINTS A MULTIPLICATION TABLE.                     |
+|  10) WRITE A FUNCTION THAT PRINTS A MESSAGE MULTIPLE TIMES.                   |
+|  11) CALL A FUNCTION ONCE.                                                    |
+|  12) CALL A FUNCTION MULTIPLE TIMES.                                          |
+|  13) CALL ONE FUNCTION FROM ANOTHER.                                          |
+|  14) DEFINE FUNCTION BEFORE CALLING IT.                                       |
+|  15) DEFINE FUNCTION WITH NO PARAMETERS.                                      |
+|  16) DEFINE FUNCTION AND RETURN NOTHING.                                      |
+|  17) DEFINE FUNCTION AND RETURN A VALUE.                                      |
+|  18) PRINT FUNCTION RETURN VALUE.                                             |
+|  19) STORE FUNCTION RETURN VALUE IN VARIABLE.                                 |
+|  20) CALL FUNCTION INSIDE PRINT().                                            |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                 🟢 LEVEL 1 — BASIC (PARAMETERS & RETURN)                      |
++------------------------------------------------------------------------------+
+|  21) WRITE FUNCTION THAT ADDS TWO NUMBERS.                                    |
+|  22) WRITE FUNCTION THAT SUBTRACTS TWO NUMBERS.                               |
+|  23) WRITE FUNCTION THAT MULTIPLIES TWO NUMBERS.                              |
+|  24) WRITE FUNCTION THAT DIVIDES TWO NUMBERS SAFELY.                          |
+|  25) WRITE FUNCTION THAT RETURNS SQUARE OF A NUMBER.                          |
+|  26) WRITE FUNCTION THAT RETURNS CUBE OF A NUMBER.                            |
+|  27) WRITE FUNCTION THAT CHECKS EVEN OR ODD.                                  |
+|  28) WRITE FUNCTION THAT CHECKS POSITIVE OR NEGATIVE.                         |
+|  29) WRITE FUNCTION THAT RETURNS MAXIMUM OF TWO NUMBERS.                      |
+|  30) WRITE FUNCTION THAT RETURNS MINIMUM OF TWO NUMBERS.                      |
+|  31) WRITE FUNCTION THAT RETURNS SUM OF FIRST N NUMBERS.                      |
+|  32) WRITE FUNCTION THAT RETURNS FACTORIAL OF A NUMBER.                       |
+|  33) WRITE FUNCTION THAT RETURNS FIBONACCI SERIES.                            |
+|  34) WRITE FUNCTION THAT CHECKS PRIME NUMBER.                                 |
+|  35) WRITE FUNCTION THAT CHECKS PALINDROME NUMBER.                            |
+|  36) WRITE FUNCTION THAT CHECKS ARMSTRONG NUMBER.                             |
+|  37) WRITE FUNCTION THAT COUNTS DIGITS OF NUMBER.                             |
+|  38) WRITE FUNCTION THAT SUMS DIGITS OF NUMBER.                               |
+|  39) WRITE FUNCTION THAT REVERSES A NUMBER.                                   |
+|  40) WRITE FUNCTION THAT FINDS GCD.                                           |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|             🟡 LEVEL 2 — BASIC (MULTIPLE PARAMETERS & DEFAULTS)               |
++------------------------------------------------------------------------------+
+|  41) WRITE FUNCTION WITH TWO PARAMETERS.                                      |
+|  42) WRITE FUNCTION WITH THREE PARAMETERS.                                    |
+|  43) WRITE FUNCTION WITH DEFAULT PARAMETERS.                                  |
+|  44) WRITE FUNCTION WITH OPTIONAL PARAMETERS.                                 |
+|  45) WRITE FUNCTION WITH KEYWORD ARGUMENTS.                                   |
+|  46) CALL FUNCTION USING POSITIONAL ARGUMENTS.                                |
+|  47) CALL FUNCTION USING KEYWORD ARGUMENTS.                                   |
+|  48) WRITE FUNCTION THAT RETURNS MULTIPLE VALUES.                             |
+|  49) UNPACK RETURNED TUPLE FROM FUNCTION.                                     |
+|  50) WRITE FUNCTION THAT SWAPS TWO NUMBERS.                                   |
+|  51) WRITE FUNCTION THAT CALCULATES SIMPLE INTEREST.                          |
+|  52) WRITE FUNCTION THAT CALCULATES COMPOUND INTEREST.                        |
+|  53) WRITE FUNCTION THAT CALCULATES AREA OF SHAPES.                           |
+|  54) WRITE FUNCTION THAT CONVERTS UNITS.                                      |
+|  55) WRITE FUNCTION THAT VALIDATES INPUT.                                     |
+|  56) WRITE FUNCTION THAT RETURNS GRADE.                                       |
+|  57) WRITE FUNCTION THAT RETURNS DISCOUNT.                                    |
+|  58) WRITE FUNCTION THAT RETURNS TAX.                                         |
+|  59) WRITE FUNCTION THAT RETURNS ELIGIBILITY.                                 |
+|  60) WRITE FUNCTION THAT FORMATS OUTPUT.                                      |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                     🟡 LEVEL 3 — BASIC+ (*ARGS, **KWARGS)                     |
++------------------------------------------------------------------------------+
+|  61) WRITE FUNCTION USING *ARGS.                                              |
+|  62) WRITE FUNCTION USING **KWARGS.                                           |
+|  63) WRITE FUNCTION MIXING ARGS AND KWARGS.                                   |
+|  64) WRITE FUNCTION THAT SUMS UNLIMITED NUMBERS.                              |
+|  65) WRITE FUNCTION THAT FINDS MAX OF UNLIMITED NUMBERS.                      |
+|  66) WRITE FUNCTION THAT FINDS MIN OF UNLIMITED NUMBERS.                      |
+|  67) WRITE FUNCTION THAT PRINTS KEY–VALUE PAIRS.                              |
+|  68) WRITE FUNCTION THAT UPDATES DICTIONARY VALUES.                           |
+|  69) WRITE FUNCTION THAT ACCEPTS LIST AS ARGUMENT.                            |
+|  70) WRITE FUNCTION THAT MODIFIES LIST INSIDE FUNCTION.                       |
+|  71) WRITE FUNCTION THAT DOES NOT MODIFY ORIGINAL LIST.                       |
+|  72) WRITE FUNCTION THAT ACCEPTS TUPLE AS ARGUMENT.                           |
+|  73) WRITE FUNCTION THAT ACCEPTS SET AS ARGUMENT.                             |
+|  74) WRITE FUNCTION THAT ACCEPTS DICTIONARY AS ARGUMENT.                      |
+|  75) WRITE FUNCTION THAT RETURNS LIST.                                        |
+|  76) WRITE FUNCTION THAT RETURNS TUPLE.                                       |
+|  77) WRITE FUNCTION THAT RETURNS DICTIONARY.                                  |
+|  78) WRITE FUNCTION THAT RETURNS SET.                                         |
+|  79) WRITE FUNCTION THAT HANDLES MIXED INPUTS.                                |
+|  80) WRITE FUNCTION THAT VALIDATES ARGUMENTS.                                 |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                 🟠 LEVEL 4 — MEDIUM (SCOPE & NESTED FUNCTIONS)                |
++------------------------------------------------------------------------------+
+|  81) DEMONSTRATE LOCAL SCOPE.                                                 |
+|  82) DEMONSTRATE GLOBAL SCOPE.                                                |
+|  83) MODIFY GLOBAL VARIABLE INSIDE FUNCTION.                                  |
+|  84) USE GLOBAL KEYWORD.                                                      |
+|  85) DEMONSTRATE NONLOCAL SCOPE.                                              |
+|  86) WRITE NESTED FUNCTION.                                                   |
+|  87) CALL INNER FUNCTION.                                                     |
+|  88) RETURN INNER FUNCTION.                                                   |
+|  89) PASS FUNCTION AS ARGUMENT.                                               |
+|  90) STORE FUNCTION IN VARIABLE.                                              |
+|  91) CREATE FUNCTION FACTORY.                                                 |
+|  92) DEMONSTRATE CLOSURE BEHAVIOR.                                            |
+|  93) TRACK STATE USING CLOSURE.                                               |
+|  94) USE CLOSURE FOR COUNTER.                                                 |
+|  95) USE CLOSURE FOR ACCUMULATOR.                                             |
+|  96) USE CLOSURE FOR VALIDATION.                                              |
+|  97) USE CLOSURE FOR CONFIGURATION.                                           |
+|  98) USE CLOSURE FOR CACHING.                                                 |
+|  99) USE CLOSURE FOR PERMISSIONS.                                             |
+| 100) DEBUG SCOPE-RELATED BUGS.                                                |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                        🔴 LEVEL 5 — HARD (RECURSION)                          |
++------------------------------------------------------------------------------+
+| 101) WRITE RECURSIVE FUNCTION TO PRINT NUMBERS.                               |
+| 102) RECURSIVE SUM OF N NUMBERS.                                              |
+| 103) RECURSIVE FACTORIAL.                                                     |
+| 104) RECURSIVE FIBONACCI.                                                     |
+| 105) RECURSIVE POWER CALCULATION.                                             |
+| 106) RECURSIVE DIGIT COUNT.                                                   |
+| 107) RECURSIVE SUM OF DIGITS.                                                 |
+| 108) RECURSIVE REVERSE NUMBER.                                                |
+| 109) RECURSIVE PALINDROME CHECK.                                              |
+| 110) RECURSIVE GCD.                                                           |
+| 111) RECURSIVE BINARY SEARCH.                                                 |
+| 112) RECURSIVE LINEAR SEARCH.                                                 |
+| 113) RECURSIVE MAX IN LIST.                                                   |
+| 114) RECURSIVE MIN IN LIST.                                                   |
+| 115) RECURSIVE LIST SUM.                                                      |
+| 116) RECURSIVE STRING REVERSE.                                                |
+| 117) RECURSIVE SUBSTRING COUNT.                                               |
+| 118) RECURSIVE NESTED LIST FLATTEN.                                           |
+| 119) RECURSIVE TREE TRAVERSAL.                                                |
+| 120) DETECT INFINITE RECURSION.                                               |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|              🔴 LEVEL 6 — VERY HARD (FUNCTIONAL PROGRAMMING)                  |
++------------------------------------------------------------------------------+
+| 121) USE LAMBDA TO ADD TWO NUMBERS.                                           |
+| 122) USE LAMBDA TO SQUARE NUMBERS.                                            |
+| 123) USE LAMBDA WITH FILTER.                                                  |
+| 124) USE LAMBDA WITH MAP.                                                     |
+| 125) USE LAMBDA WITH REDUCE.                                                  |
+| 126) USE FILTER TO REMOVE ODD NUMBERS.                                        |
+| 127) USE MAP TO TRANSFORM LIST.                                               |
+| 128) USE REDUCE TO SUM LIST.                                                  |
+| 129) CHAIN MAP, FILTER, REDUCE.                                               |
+| 130) REPLACE SIMPLE FUNCTIONS WITH LAMBDA.                                    |
+| 131) WRITE CUSTOM MAP FUNCTION.                                               |
+| 132) WRITE CUSTOM FILTER FUNCTION.                                            |
+| 133) WRITE CUSTOM REDUCE FUNCTION.                                            |
+| 134) WRITE HIGHER-ORDER FUNCTION.                                             |
+| 135) WRITE FUNCTION THAT RETURNS FUNCTION.                                    |
+| 136) WRITE FUNCTION THAT ACCEPTS FUNCTION.                                    |
+| 137) WRITE DECORATOR FUNCTION.                                                |
+| 138) APPLY DECORATOR TO FUNCTION.                                             |
+| 139) WRITE TIMING DECORATOR.                                                  |
+| 140) WRITE LOGGING DECORATOR.                                                 |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|              🧠 LEVEL 7 — VERY HARD (ROBUST & SAFE FUNCTIONS)                 |
++------------------------------------------------------------------------------+
+| 141) VALIDATE FUNCTION ARGUMENTS.                                             |
+| 142) HANDLE WRONG ARGUMENT TYPES.                                             |
+| 143) HANDLE MISSING ARGUMENTS.                                                |
+| 144) HANDLE EXTRA ARGUMENTS.                                                  |
+| 145) HANDLE DIVISION BY ZERO.                                                 |
+| 146) HANDLE INVALID INPUT.                                                    |
+| 147) WRITE RETRY-BASED FUNCTION.                                              |
+| 148) WRITE SAFE CALCULATOR FUNCTION.                                          |
+| 149) WRITE REUSABLE VALIDATION FUNCTION.                                      |
+| 150) WRITE REUSABLE FORMATTER FUNCTION.                                       |
+| 151) WRITE UTILITY FUNCTION LIBRARY.                                          |
+| 152) WRITE CONFIGURATION-DRIVEN FUNCTION.                                     |
+| 153) WRITE STATEFUL FUNCTION.                                                 |
+| 154) WRITE IDEMPOTENT FUNCTION.                                               |
+| 155) WRITE PURE FUNCTION.                                                     |
+| 156) WRITE IMPURE FUNCTION.                                                   |
+| 157) COMPARE PURE VS IMPURE FUNCTIONS.                                        |
+| 158) WRITE TESTABLE FUNCTION.                                                 |
+| 159) WRITE DETERMINISTIC FUNCTION.                                            |
+| 160) WRITE SIDE-EFFECT-FREE FUNCTION.                                         |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                  🧠 LEVEL 8 — SYSTEM & DESIGN THINKING                         |
++------------------------------------------------------------------------------+
+| 161) BUILD FUNCTION-BASED MENU SYSTEM.                                        |
+| 162) BUILD MODULAR CALCULATOR.                                                |
+| 163) BUILD REUSABLE MATH LIBRARY.                                             |
+| 164) BUILD REUSABLE STRING UTILITY LIBRARY.                                   |
+| 165) BUILD REUSABLE LIST UTILITY LIBRARY.                                     |
+| 166) BUILD REUSABLE VALIDATION MODULE.                                        |
+| 167) BUILD REUSABLE IO HELPERS.                                               |
+| 168) BUILD CLI USING FUNCTIONS.                                               |
+| 169) BUILD APPLICATION USING FUNCTIONS.                                       |
+| 170) BUILD LAYERED ARCHITECTURE USING FUNCTIONS.                              |
+| 171) REFACTOR LARGE CODE INTO FUNCTIONS.                                      |
+| 172) OPTIMIZE FUNCTION CALLS.                                                 |
+| 173) MEASURE FUNCTION PERFORMANCE.                                            |
+| 174) PROFILE FUNCTION EXECUTION.                                              |
+| 175) APPLY MEMOIZATION.                                                       |
+| 176) IMPLEMENT CACHING DECORATOR.                                             |
+| 177) IMPLEMENT RETRY DECORATOR.                                               |
+| 178) IMPLEMENT AUTHORIZATION DECORATOR.                                       |
+| 179) IMPLEMENT VALIDATION DECORATOR.                                          |
+| 180) IMPLEMENT LOGGING DECORATOR.                                             |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+|                🧠 LEVEL 9 — MINI PROJECTS (FUNCTION-CENTRIC)                  |
++------------------------------------------------------------------------------+
+| 181) CALCULATOR LIBRARY.                                                      |
+| 182) MATH UTILITY MODULE.                                                     |
+| 183) STRING UTILITY TOOLKIT.                                                  |
+| 184) VALIDATION LIBRARY.                                                      |
+| 185) CLI APPLICATION FRAMEWORK.                                               |
+| 186) QUIZ ENGINE.                                                             |
+| 187) ATM SYSTEM.                                                              |
+| 188) BANKING UTILITY LIBRARY.                                                 |
+| 189) DATA PROCESSING ENGINE.                                                  |
+| 190) GAME LOGIC ENGINE.                                                       |
+| 191) MENU-DRIVEN APPLICATION.                                                 |
+| 192) EXPENSE TRACKER.                                                        |
+| 193) STUDENT MANAGEMENT SYSTEM.                                               |
+| 194) INVENTORY SYSTEM.                                                       |
+| 195) AUTHENTICATION SYSTEM.                                                  |
+| 196) RULE ENGINE.                                                             |
+| 197) WORKFLOW ENGINE.                                                        |
+| 198) UTILITY SDK.                                                             |
+| 199) PLUGIN-BASED SYSTEM.                                                    |
+| 200) FULL FUNCTION-BASED APPLICATION.                                         |
++------------------------------------------------------------------------------+
