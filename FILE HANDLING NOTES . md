@@ -1,0 +1,524 @@
+1) WHAT IS A FILE
+
+A file is a permanent storage unit on disk (HDD/SSD).
+
+RAM = temporary (lost after power off)
+
+FILE (disk) = permanent (stays saved)
+
+A file is just a sequence of bytes.
+When we read/write text, Python converts between bytes ↔ characters using an encoding.
+
+2) FILE PATHS (WHERE THE FILE IS)
+Relative path
+
+"data.txt" means “in the same folder where the program is running”.
+
+Absolute path
+
+"C:/Users/Sahil/Desktop/data.txt" means fixed location.
+
+Path rules
+
+Windows uses \ but in Python use:
+
+r"C:\folder\file.txt" OR "C:/folder/file.txt"
+
+Common mistake
+
+“File not found” usually means wrong path or wrong working directory.
+
+3) OPENING A FILE = GETTING A FILE HANDLE
+
+When you open a file, you get a file object (handle) that acts like a connection.
+
+Conceptually:
+
+OS gives you permission + a stream to read/write
+
+Python gives you a file object with methods like read, write, etc.
+
+4) FILE MODES (MOST IMPORTANT THEORY)
+Text modes
+
+"r" read (file must exist)
+
+"w" write (creates new OR overwrites existing)
+
+"a" append (creates if missing, writes at end)
+
+"x" create (fails if file exists)
+
+Read + write combined
+
+"r+" read/write, file must exist, pointer starts at beginning
+
+"w+" read/write, overwrites
+
+"a+" read/write, pointer starts at end
+
+Binary modes
+
+Add b:
+
+"rb", "wb", "ab" etc. (used for images, pdf, audio)
+
+Rule:
+Text file → use text mode ("r", "w", "a")
+Non-text files → use binary ("rb", "wb")
+
+5) FILE POINTER (THE INVISIBLE CURSOR)
+
+Inside every open file there is a pointer (cursor position).
+
+Every read moves it forward.
+
+Every write writes at pointer and moves forward.
+
+Append mode puts pointer at end at the start.
+
+Tools
+
+tell() → gives current pointer position (number of bytes/characters depending on mode)
+
+seek(pos) → move pointer to a position
+
+Why pointer matters?
+
+Reading first line, last line, partial read, chunk read, resume reading, progress tracking — all depend on pointer.
+
+6) CLOSING FILES + WITH STATEMENT
+Why close?
+
+releases OS resources
+
+ensures data is saved (“flushed”)
+
+prevents file corruption/locking issues
+
+Best practice: with open(...)
+
+automatically closes file even if error happens
+
+prevents “forget to close” mistakes
+
+7) READING METHODS (THEORY)
+read()
+
+reads entire content (or given N chars)
+
+can cause memory issues for huge files
+
+readline()
+
+reads one line at a time (includes \n)
+
+readlines()
+
+returns list of lines (memory heavy for large files)
+
+Iteration (best for large files)
+
+reading line-by-line is safest
+
+8) WRITING METHODS (THEORY)
+write()
+
+writes a string (no newline automatically)
+
+writelines(list_of_strings)
+
+writes multiple strings (still no newline unless strings include \n)
+
+Common mistake:
+People expect write() to automatically go to next line — it doesn’t.
+
+9) COUNTING: LINES / WORDS / CHARACTERS
+Characters
+
+based on text length after reading
+
+be careful: newline \n counts as character
+
+Lines
+
+count how many line breaks exist
+
+empty lines still count as lines
+
+Words
+
+typically split by whitespace
+
+whitespace can be multiple spaces/tabs/newlines
+
+punctuation may stick to words unless removed ("hello," vs "hello")
+
+So word counting depends on cleaning rules.
+
+10) CLEANING TEXT (FOR LEVEL 1–2)
+Trailing spaces
+
+remove end spaces using strip logic
+
+but don’t remove internal spaces unless asked
+
+Blank lines
+
+blank line means line is empty OR only whitespace
+
+need “skip lines that become empty after stripping”
+
+Normalize whitespace
+
+convert multiple spaces/tabs/newlines into clean standard spacing
+
+usually “one space between words”
+
+Remove punctuation
+
+punctuation list: .,!?;:'"()-[]{}...
+
+removing punctuation changes word counts and frequency results
+
+11) SEARCH / REPLACE THEORY
+Replace word in file
+
+must read content
+
+modify text
+
+write back safely (avoid corruption)
+
+Remove word
+
+replace that word with empty string OR rebuild text token-by-token
+
+be careful: removing “he” should not remove “the” (word boundary concept)
+
+Find occurrences
+
+depends on case sensitivity:
+
+case-sensitive: "Apple" ≠ "apple"
+
+case-insensitive: convert both to same case
+
+Find line numbers containing word
+
+read line-by-line
+
+track line index starting from 1 (human style)
+
+12) REVERSING THEORY
+Reverse file content
+
+Two meanings:
+
+reverse the entire text characters
+
+reverse line order
+
+You must decide from problem statement:
+
+“Reverse file content” usually means reversing order of lines or characters of whole content.
+
+“Reverse each line” means each line string reversed, but line order stays same.
+
+13) SORTING LINES (LEVEL 2)
+Alphabetical sort
+
+depends on case: uppercase comes before lowercase in ASCII-like ordering
+
+to make it “natural”, normalize case while sorting
+
+Sort by length
+
+key = length of line (after stripping newline)
+
+Remove duplicates
+
+duplicates can be exact-match lines
+
+or duplicates ignoring spaces/case (depends on rule)
+
+must define: strict or normalized duplicates
+
+14) WORD FREQUENCY (LEVEL 2 CORE)
+
+Steps logically (theory):
+
+read text
+
+normalize case (optional but recommended)
+
+remove punctuation (optional depending on question)
+
+split into words
+
+count each word using map/dict idea
+
+pick max/min frequency
+
+Most frequent
+
+if tie, either list all tied words or pick first by sort rule
+
+Word index (word → line numbers)
+
+scan line-by-line
+
+for each word in a line, store that line number into that word’s list
+
+avoid duplicates line number if word repeats in same line (optional rule)
+
+15) CHARACTER CATEGORY COUNTS (LEVEL 2)
+Vowels
+
+a e i o u (and sometimes uppercase)
+
+count only letters
+
+Consonants
+
+letters that are not vowels
+
+ignore digits/punctuation/spaces
+
+Digits
+
+0–9
+
+Special characters
+
+everything that’s not letter/digit/space/newline (depends on definition)
+
+you must define “special” clearly in your solution notes
+
+16) EXTRACT NUMBERS + SUM NUMBERS
+
+Numbers can appear like:
+
+12
+
+-45
+
+3.14
+
+1,000 (comma) ← tricky
+
+You must decide rule:
+
+basic extraction usually targets integers only unless stated otherwise
+
+if decimals allowed, treat dot carefully
+
+if negative allowed, treat leading -
+
+17) CSV THEORY (LEVEL 4)
+What is CSV?
+
+Comma-Separated Values
+
+each row = record
+
+each column = field
+
+first row often header
+
+Why CSV is tricky
+
+values can include commas inside quotes
+
+missing values look like empty fields
+
+datatype issues: numbers stored as strings
+
+Two main reading styles
+
+list of lists (positional)
+
+list of dicts (header-based, safer)
+
+Schema validation
+
+check required columns exist
+
+check column count matches header
+
+check datatype rules (age is integer, etc.)
+
+Cleaning CSV
+
+trimming spaces
+
+handling missing values (default, skip, or error)
+
+fixing invalid rows
+
+18) ERROR HANDLING THEORY (LEVEL 5)
+
+Common errors:
+
+FileNotFound (wrong path)
+
+PermissionError (no rights / file is open in another program)
+
+IsADirectoryError (you gave folder name instead of file)
+
+UnicodeDecodeError (wrong encoding)
+
+ValueError (bad format line)
+
+Robust strategy mindset
+
+fail safe not “crash”
+
+log errors instead of stopping
+
+skip bad lines but count/report them
+
+Retry reading
+
+sometimes file is temporarily locked
+
+retry with backoff (wait and retry)
+
+19) SAFE WRITING: ATOMIC WRITES (VERY IMPORTANT)
+
+Problem: if program crashes while writing, file becomes half-written (corrupt).
+
+Atomic write theory:
+
+write to temp file
+
+if success, rename temp → original (replace)
+
+if fail, keep original intact
+
+Rollback idea:
+
+keep backup of previous version
+
+restore if failure happens
+
+Concurrent writes theory:
+
+two programs writing simultaneously can mix content
+
+solution: file lock or single-writer policy
+
+20) LARGE FILE THEORY (LEVEL 3–6)
+Avoid memory overflow
+
+do not read whole file
+
+read line-by-line or chunks
+
+Chunk reading
+
+read fixed-size blocks (e.g., 4KB, 1MB)
+
+useful for binary copy or huge logs
+
+Generators / lazy readers
+
+produce one line at a time on demand
+
+enables streaming processing
+
+Progress tracking
+
+total size known → progress = read_bytes / total_bytes
+
+Resume reading
+
+store last pointer position in a checkpoint file
+
+seek back to position next time
+
+21) LOG FILES THEORY (LEVEL 6)
+
+Logs = time-ordered text records
+
+access logs (requests, IP, endpoints)
+
+error logs (exceptions, stack traces)
+
+Tasks include:
+
+parse each line into fields (split by spaces or patterns)
+
+count events (status codes, error types)
+
+build summary report (top IPs, top errors, peak times)
+
+22) DIRECTORY PROCESSING THEORY (LEVEL 6)
+
+Processing multiple files means:
+
+list files in folder
+
+filter by extension (.txt, .csv, .log)
+
+process each file safely
+
+archive / move processed files
+
+rotate logs (rename old logs, create new)
+
+Compression/decompression:
+
+reduce size for archives
+
+must preserve original content exactly
+
+Encryption/decryption:
+
+security layer (don’t store passwords/plain sensitive data)
+
+key management matters more than algorithm in real systems
+
+23) DESIGN & ARCHITECTURE THEORY (LEVEL 7)
+Key principle: Separate IO from Logic
+
+IO layer: reading/writing files
+
+Processing layer: text cleaning, counting, parsing
+
+Why?
+
+easier testing (feed strings instead of real files)
+
+reusable logic for different inputs (file, API, database)
+
+Abstraction
+
+create “Reader” interface
+
+create “Writer” interface
+
+swap text/csv/json later easily
+
+Validation framework
+
+rules: schema, datatype, allowed ranges
+
+report: which rule failed, where, why
+
+Pipeline/workflow
+
+Step 1: extract
+
+Step 2: transform
+
+Step 3: load
+
+plus logging + retry + rollback
+
+Integrity
+
+checksum verifies file unchanged
+
+versioned storage allows rollback to older version
+
