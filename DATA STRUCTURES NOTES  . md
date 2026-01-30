@@ -1,0 +1,1365 @@
+================================================================================
+🐍 TOPIC 19 — DATA STRUCTURES (THEORY NOTES)
+STACK · QUEUE · LINKED LIST · DEQUE
+0) Big Picture: What these DS are and why they exist
+All four are linear data structures (elements arranged in a line). They mainly differ in where insertion/deletion is allowed and how you access elements.
+
+
+Stack → last added is first removed (LIFO: Last In, First Out)
+
+
+Queue → first added is first removed (FIFO: First In, First Out)
+
+
+Deque → insertion/deletion allowed at both ends (double-ended queue)
+
+
+Linked List → flexible “chain of nodes” used to build many structures (stack/queue/deque can be built using it)
+
+
+Why not just use a normal array/list for everything?
+Because real systems need:
+
+
+Controlled access discipline (LIFO/FIFO) for correctness (undo, scheduling, recursion, buffering)
+
+
+Efficient operations (like O(1) push/pop/insert-front) depending on the implementation
+
+
+Dynamic growth without shifting lots of elements (linked lists help here)
+
+
+
+PART A — STACK (LIFO)
+1) Definition and Core Rule
+A stack is a collection where:
+
+
+Insertion happens only at one end: TOP
+
+
+Deletion happens only at the same end: TOP
+So the most recent item is always handled first (LIFO).
+
+
+Real-life analogies
+
+
+Stack of plates (you remove the top one first)
+
+
+Undo history (last action undone first)
+
+
+Browser back tracking (last visited page goes back first)
+
+
+Function call stack in programs
+
+
+
+2) Basic Stack Operations (Level 0 topics)
+A) PUSH (insert)
+
+
+Add an element to the top
+
+
+Changes top pointer/index
+
+
+B) POP (remove)
+
+
+Removes element from top
+
+
+Returns that element (usually)
+
+
+If stack is empty → Underflow
+
+
+C) PEEK / TOP
+
+
+Reads top element without removing it
+
+
+If empty → invalid
+
+
+D) IS EMPTY
+
+
+True if no items
+
+
+E) IS FULL (fixed size stack)
+
+
+Only matters when stack has a defined capacity (array-based fixed stack)
+
+
+If full and you push → Overflow
+
+
+F) SIZE
+
+
+Number of elements
+
+
+G) PRINT / DISPLAY (Top to bottom)
+
+
+Printing top-to-bottom matches how stack behaves
+
+
+Key concept: “Top pointer”
+
+
+Array stack: top is an index
+
+
+Linked list stack: top is the head node pointer
+
+
+
+3) Stack Implementation Concepts (not code)
+Stack using List/Array
+Two styles:
+
+
+Dynamic array/list based
+
+
+
+
+Push/pop at end usually O(1) amortized
+
+
+Sometimes resizing occurs
+
+
+
+
+Fixed-size array based
+
+
+
+
+Truly O(1)
+
+
+But can overflow if capacity reached
+
+
+Main issue with array/list:
+
+
+If you implement push/pop at the front, shifting causes O(n).
+So stacks are typically implemented at the end of list/array.
+
+
+Stack using Linked List
+
+
+Treat the head as top
+
+
+Push/pop at head → O(1)
+
+
+No shifting, grows as needed (until memory limit)
+
+
+
+4) Complexity Summary (Stack)
+OperationArray/List StackLinked List StackpushO(1) amortizedO(1)popO(1)O(1)peekO(1)O(1)searchO(n)O(n)min/max (without extra support)O(n)O(n)
+
+5) Level 0 “extra” operations theory
+Reverse stack using list
+
+
+If you have items in stack, reversing means bottom becomes top.
+
+
+Typically needs extra storage (another stack/list) or recursion.
+
+
+Copy one stack to another
+
+
+Direct popping loses original order.
+
+
+To preserve order, you use an intermediate stack:
+
+
+Stack A → temp → Stack B (and maybe restore A)
+
+
+
+
+Compare two stacks
+
+
+Equal if:
+
+
+Same size
+
+
+Same sequence top-to-bottom (or bottom-to-top depending definition)
+
+
+
+
+Comparison often requires traversing.
+
+
+Find min/max, count even/odd
+
+
+Without special structure, you must scan all elements → O(n)
+
+
+Advanced idea: Min Stack uses an auxiliary stack to keep min at each level (then min becomes O(1)).
+
+
+Search element
+
+
+Must check one-by-one; stack doesn’t support random access.
+
+
+
+6) Stack Applications (Level 1 topics) — Theory
+21) Reverse a string
+
+
+Push each character, pop all → reversed output
+
+
+Works because LIFO reverses order naturally
+
+
+22) Reverse a number
+
+
+Push digits, pop digits → reversed number
+
+
+Also used for palindrome check
+
+
+23–24) Balanced parentheses/brackets
+Core rule:
+
+
+Every closing bracket must match the most recent unmatched opening bracket.
+That “most recent” requirement is exactly LIFO → stack is perfect.
+
+
+Algorithm idea (theory):
+
+
+Scan left to right
+
+
+Push opening symbols: ( { [
+
+
+On closing symbol: stack top must be the matching opening
+
+
+If mismatch or empty when closing arrives → not balanced
+
+
+At end: stack must be empty
+
+
+25) Infix → Postfix (expression conversion)
+Infix: A + B * C
+Postfix: A B C * +
+Why stack?
+
+
+Operators must be output based on precedence & associativity
+
+
+Stack temporarily stores operators until it’s safe to output them.
+
+
+Core principles:
+
+
+Operands go directly to output
+
+
+Operators:
+
+
+Pop operators from stack while they have higher/equal precedence (depending associativity)
+
+
+Then push current operator
+
+
+
+
+Parentheses control when operators pop
+
+
+26) Evaluate postfix
+Postfix evaluation is clean:
+
+
+Scan tokens
+
+
+If operand → push it
+
+
+If operator → pop required operands, compute, push result
+Because operation always applies to most recent operands → stack fits perfectly.
+
+
+27–28) Infix → Prefix and prefix evaluation
+Prefix: + A * B C
+Conversion often uses stack + reverse tricks (theory):
+
+
+Reverse infix, swap parentheses, convert to postfix, reverse result → prefix
+Evaluation similar to postfix but scanned right-to-left.
+
+
+29) Undo/Redo simulation
+
+
+Undo is stack of actions (last action undone first)
+
+
+Redo is another stack storing undone actions
+Flow:
+
+
+Do action → push to Undo, clear Redo
+
+
+Undo → pop Undo push to Redo
+
+
+Redo → pop Redo push to Undo
+
+
+30) Backtracking simulation
+Backtracking means:
+
+
+try path
+
+
+if dead end, return to latest decision point
+Stack stores decision states.
+
+
+31) Browser back button
+
+
+Back history is stack
+
+
+Often two-stack model:
+
+
+Back stack + Forward stack
+
+
+
+
+32–33) Function call stack + recursion tracking
+Every function call stores:
+
+
+return address
+
+
+local variables
+
+
+parameters context
+This is exactly a stack. Recursion depth is “stack depth”.
+
+
+34) Palindrome using stack
+Compare:
+
+
+Push first half
+
+
+Pop while scanning second half
+LIFO aligns symmetric matching.
+
+
+35) Sort stack using temporary stack
+Key idea:
+
+
+Use another stack as “sorted buffer”
+
+
+Insert elements in correct place by moving back and forth
+
+
+36) Insert element at bottom
+Because stack only allows top operations, inserting at bottom requires:
+
+
+Recursion or extra stack to temporarily remove everything
+
+
+37) Reverse stack recursively
+Recursion uses call stack + “insert at bottom” logic.
+38) Stack using deque
+Deque can do push/pop at one end efficiently.
+39) Stack using linked list
+Top = head, push/pop at head.
+40) Array vs stack behavior
+
+
+Arrays allow random access; stacks restrict access for control/discipline.
+
+
+Stack is a “rule + interface”, array is a “storage”.
+
+
+
+PART B — QUEUE (FIFO)
+1) Definition and Core Rule
+A queue is FIFO:
+
+
+Insert at REAR (enqueue)
+
+
+Remove from FRONT (dequeue)
+
+
+Analogies:
+
+
+Line at ticket counter
+
+
+Printer jobs
+
+
+CPU scheduling
+
+
+Buffering packets/audio/video
+
+
+
+2) Basic Queue Operations (Level 0 topics)
+ENQUEUE
+
+
+Add element at rear
+
+
+DEQUEUE
+
+
+Remove from front
+
+
+If empty → Underflow
+
+
+PEEK FRONT
+
+
+See first element
+
+
+PEEK REAR
+
+
+See last element
+
+
+IS EMPTY
+
+
+No elements
+
+
+IS FULL
+
+
+Only for fixed-size array queue
+
+
+SIZE / PRINT / CLEAR / SEARCH
+
+
+Search needs scanning (queue is sequential access)
+
+
+
+3) Queue Implementation Concepts
+Queue using list/array (important detail)
+If you implement:
+
+
+enqueue at end (easy)
+
+
+dequeue at front → removing front shifts elements (O(n)) in normal arrays/lists
+
+
+So practical options:
+
+
+Circular Queue using array (best for fixed size)
+
+
+Deque structure (supports O(1) both ends)
+
+
+Linked list queue (enqueue at tail, dequeue at head, both O(1))
+
+
+
+4) Circular Queue (Level 1 topic 61) — core theory
+Problem solved: wasted space / shifting.
+Use two indices:
+
+
+front
+
+
+rear
+They “wrap around” using modulo:
+
+
+next index = (index + 1) % capacity
+
+
+Full condition (common):
+
+
+(rear + 1) % capacity == front
+Empty condition:
+
+
+front == rear (or front == -1 depending style)
+
+
+Circular queue makes enqueue/dequeue O(1) for arrays.
+
+5) Complexity Summary (Queue)
+OperationArray Circular QueueLinked List QueueenqueueO(1)O(1)dequeueO(1)O(1)peekO(1)O(1)search/min/maxO(n)O(n)
+
+6) Queue Applications (Level 1 topics) — Theory
+68) Printer queue
+
+
+Jobs arrive → enqueue
+
+
+Printer processes → dequeue
+
+
+69) CPU scheduling (FCFS)
+
+
+First process arriving runs first → FIFO queue
+
+
+70–72) Ticket/bank/customer service
+
+
+Exactly FIFO model, sometimes with priority variants
+
+
+73) Task scheduler
+
+
+Simple scheduling uses FIFO; advanced uses priority queue
+
+
+74) BFS in graphs
+BFS explores level-by-level:
+
+
+Visit start
+
+
+Enqueue neighbors
+
+
+Dequeue next and repeat
+FIFO ensures correct level order.
+
+
+75) Level-order traversal of a tree
+Same logic as BFS on tree.
+76) Sliding window maximum
+Classic uses deque, not normal queue:
+
+
+Maintains candidates in decreasing order
+
+
+Front always max
+
+
+77) First non-repeating character in a stream
+Queue keeps “potential non-repeating characters” in arrival order; map counts frequency.
+78) Queue using two stacks
+Use two stacks:
+
+
+Input stack for enqueue
+
+
+Output stack for dequeue
+When output empty, pour input → output (reverses order), enabling FIFO.
+
+
+79) Stack using two queues
+More expensive but possible by shifting elements between queues to simulate LIFO.
+80) Queue vs stack
+
+
+Queue: fairness, scheduling, buffering
+
+
+Stack: backtracking, undo, parsing, recursion
+
+
+
+PART C — LINKED LIST (Nodes & Pointers)
+1) Core Idea
+A linked list is a sequence of nodes, where each node stores:
+
+
+data
+
+
+link(s) to other node(s)
+
+
+Unlike arrays:
+
+
+Not stored in contiguous memory
+
+
+Access is sequential (you traverse links)
+
+
+Why linked list exists
+
+
+Dynamic size: grows/shrinks easily
+
+
+Insert/delete without shifting elements (can be O(1) if position known)
+
+
+Builds stacks, queues, adjacency lists, LRU caches, etc.
+
+
+Main weakness
+
+
+No random access: reaching the kth element is O(k)
+
+
+Extra memory for pointers
+
+
+Cache locality worse than arrays
+
+
+
+2) Types of Linked Lists
+Singly Linked List (SLL)
+Node has:
+
+
+data
+
+
+next pointer
+
+
+Traversal is forward only.
+Doubly Linked List (DLL)
+Node has:
+
+
+prev
+
+
+next
+Allows backward traversal and easier deletion when node pointer is known.
+
+
+Circular Linked List (CLL)
+Last node points back to head (no NULL end).
+Useful for cyclic processes (round-robin, Josephus).
+
+3) Singly Linked List Basics (Level 0: 81–100) — Theory
+81–82) Node & list creation
+
+
+Head pointer points to first node
+
+
+Empty list: head = NULL
+
+
+Insertion
+83) Insert at beginning
+
+
+New node’s next = head
+
+
+head = new node
+This is O(1)
+
+
+84) Insert at end
+
+
+Traverse to last node (next == NULL)
+
+
+last.next = new node
+This is O(n) unless you maintain a tail pointer (then O(1))
+
+
+85) Insert at position
+
+
+Traverse to node before the position
+
+
+Rewire pointers carefully:
+
+
+prev.next → new
+
+
+new.next → next
+Time O(n)
+
+
+
+
+Deletion
+86) Delete at beginning
+
+
+head = head.next
+O(1)
+
+
+87) Delete at end
+
+
+Need second-last node to set its next = NULL
+
+
+Requires traversal → O(n)
+
+
+88) Delete by value
+
+
+Find node with that value
+
+
+Track previous pointer to bypass it
+O(n)
+
+
+89) Traverse
+
+
+Start at head, follow next until NULL
+
+
+90) Count nodes
+
+
+Traverse and count → O(n)
+
+
+91) Search element
+
+
+Linear scan → O(n)
+
+
+92) Update node value
+
+
+Search then modify → O(n)
+
+
+93) Reverse linked list
+Goal: make links point opposite direction.
+Theory: Maintain three pointers:
+
+
+prev
+
+
+curr
+
+
+next
+Update: curr.next = prev, move forward.
+Time O(n), space O(1).
+
+
+94) Find middle element
+Two-pointer trick:
+
+
+slow moves 1 step
+
+
+fast moves 2 steps
+When fast ends, slow is middle. O(n), no extra space.
+
+
+95) Find Nth node from end
+Two-pointer gap method:
+
+
+Move first pointer n steps ahead
+
+
+Move both until first hits end
+
+
+Second is answer
+
+
+96–99) Loop detection/removal
+A loop means traversal never ends.
+Floyd’s cycle detection (tortoise-hare)
+
+
+slow 1 step, fast 2 steps
+
+
+If they meet → cycle exists
+
+
+To find cycle start:
+
+
+Put one pointer at head, one at meeting point
+
+
+Move both 1 step; meeting point = start of cycle
+
+
+Remove loop:
+
+
+Find last node inside loop and set its next = NULL
+
+
+98) Length of loop
+
+
+After meeting point, traverse until returning to it; count steps.
+
+
+100) Split into two halves
+Often done using slow/fast pointers:
+
+
+slow ends at middle
+
+
+cut link to split.
+
+
+
+4) Linked List Variants (Level 1: 101–120) — Theory
+101–102) Reverse iterative vs recursive
+
+
+Iterative: pointer rewiring (space O(1))
+
+
+Recursive: uses call stack (space O(n))
+
+
+103) Sort linked list
+Sorting is harder because no random access.
+Best strategy: Merge Sort (O(n log n)) because it works well with linked lists.
+104) Merge two sorted lists
+Like merge step of merge sort:
+
+
+Compare heads of both lists
+
+
+Append smaller node to result
+
+
+Advance that list
+Time O(n+m)
+
+
+105–106) Remove duplicates
+
+
+Sorted list: duplicates are adjacent → easy single traversal
+
+
+Unsorted list: need hashing (set) for O(n) time, or O(n²) without extra memory
+
+
+107–108) Swap nodes / pairwise swap
+Swapping nodes means rewiring links, not just swapping data (often asked in interviews).
+109) Rotate list
+Move last k nodes to front or vice versa; needs careful pointer cutting.
+110) Palindrome list
+Options:
+
+
+Use stack for first half
+
+
+Or reverse second half and compare
+Then restore structure (important in clean implementations).
+
+
+111) Intersection of two linked lists
+Classic method:
+
+
+Use lengths: align pointers then move together
+
+
+Or two-pointer switching trick (each pointer traverses both lists).
+
+
+112–113) Add/multiply numbers using linked list
+Digits stored as nodes.
+
+
+If reverse order: addition is easier (like normal addition)
+
+
+If forward order: need stack or reverse first
+
+
+114) Flatten linked list
+If nodes have “next” + “down/child”, flatten means merge levels into one list.
+115–116) Clone list / random pointer copy
+Random pointer list needs careful cloning:
+
+
+Use hashmap mapping old->new nodes, or interleaving technique (O(1) extra)
+
+
+117) Delete alternate nodes
+Traverse and bypass every second node.
+118–120) Rearrange / segregate even-odd / partition
+Used for stable partitioning and reordering without extra arrays.
+
+5) Doubly & Circular Lists (Level 2: 121–140) — Theory
+Doubly Linked List (DLL)
+Why DLL?
+
+
+You can go backward
+
+
+Deleting a known node is easier because you have prev pointer
+
+
+Perfect for navigation (browser history), LRU cache
+
+
+DLL operations
+
+
+Insert: fix up to four pointers (prev/next of neighbors + new node)
+
+
+Delete: reconnect prev and next neighbors
+
+
+Reverse DLL
+Swap next and prev for each node and update head.
+
+Circular Linked List (CLL)
+Key property
+
+
+Last node.next = head
+
+
+No NULL termination
+
+
+Where it’s used
+
+
+Round-robin scheduling
+
+
+Josephus problem
+
+
+Playlists, repeated cycles
+
+
+Splitting circular list
+
+
+Use slow/fast; when fast reaches end-around, slow is mid
+
+
+Cut into two circular halves by pointer rewiring.
+
+
+Checking circular
+
+
+Traverse and see if you return to head.
+
+
+
+6) Hard & System Topics (Level 3–4) — How they connect to real systems
+141) Deque using linked list
+
+
+You maintain head and tail pointers in a doubly linked list.
+
+
+Operations at both ends become O(1).
+
+
+142) Priority queue using linked list
+Two variants:
+
+
+Unsorted list: insert O(1), delete-min/max O(n)
+
+
+Sorted list: insert O(n), delete-min/max O(1)
+
+
+145) Hash map using linked list
+Hash table uses buckets.
+Each bucket often stores collisions as a linked list (separate chaining).
+147) Merge K sorted linked lists
+Approaches:
+
+
+Pairwise merging (like tournament) → O(N log K)
+
+
+Min-heap of heads → O(N log K)
+
+
+148) Merge sort on linked list
+Perfect for LL because:
+
+
+Splitting is easy (slow/fast)
+
+
+Merging is pointer-based without extra arrays
+
+
+150–151) Convert LL ↔ BST
+
+
+LL to BST: choose mid as root recursively (balanced)
+
+
+BST to LL: in-order traversal gives sorted order
+
+
+154) Reverse nodes in groups of K
+Important for chunk processing; pointer manipulation heavy.
+160) Build adjacency list using LL
+Graphs stored as:
+
+
+array of vertices
+
+
+each vertex points to linked list of neighbors
+Memory efficient for sparse graphs.
+
+
+
+DEQUE (appears in Queue/Linked List sections but important separately)
+1) Definition
+A deque (double-ended queue) allows:
+
+
+Insert front
+
+
+Insert rear
+
+
+Delete front
+
+
+Delete rear
+
+
+So it generalizes both:
+
+
+Stack (use one end only)
+
+
+Queue (use front and rear only)
+
+
+Types
+
+
+Input-restricted deque (insert at one end, delete both)
+
+
+Output-restricted deque (delete at one end, insert both)
+
+
+
+2) Deque Applications (why it matters)
+Sliding window maximum (important)
+Deque keeps indices/elements in decreasing order:
+
+
+Remove smaller elements from rear
+
+
+Front always holds maximum of current window
+This makes it O(n) for the entire array.
+
+
+Palindrome checking
+Compare front and rear characters.
+Undo/redo + navigation
+Deque can model “history” efficiently depending on design.
+
+MINI PROJECTS (Level 5) — Theory mapping (what they demonstrate)
+These are not just projects — each one is a “proof you understand the DS”.
+181) Stack-based calculator / 182) Expression evaluator
+
+
+Infix conversion + postfix evaluation
+
+
+Operator precedence handling
+
+
+Parsing concept
+
+
+183) Browser navigation system
+
+
+Two stacks or a doubly list
+
+
+Back/forward operations
+
+
+184) Undo-redo editor
+
+
+Two stacks or doubly list
+
+
+185) CPU scheduling simulator
+
+
+Queue models processes waiting
+If advanced → priority queue
+
+
+186–187) Bank/ticket systems
+
+
+Real-time queue behavior + overflow/underflow + service rate
+
+
+188) Linked list toolkit
+
+
+Insert/delete/reverse/detect loop etc.
+
+
+189) Cache management / 171) LRU cache
+
+
+Usually hash map + doubly linked list
+Why?
+
+
+Hash map gives O(1) access to cache items
+
+
+Doubly list gives O(1) move-to-front and eviction at tail
+
+
+193) Real-time chat queue
+
+
+message buffering: FIFO
+
+
+may require deque for multiple priorities
+
+
+194) Graph BFS tool
+
+
+Queue core
+
+
+
+MOST IMPORTANT EXAM CONCEPTS (High frequency)
+Stack (must know)
+
+
+LIFO definition
+
+
+push/pop/peek
+
+
+overflow/underflow
+
+
+balanced parentheses
+
+
+postfix evaluation
+
+
+infix→postfix concept
+
+
+recursion/call stack
+
+
+undo/redo logic
+
+
+Queue (must know)
+
+
+FIFO definition
+
+
+enqueue/dequeue
+
+
+circular queue idea and why needed
+
+
+BFS / level-order traversal
+
+
+overflow/underflow
+
+
+Linked List (must know)
+
+
+node concept and pointers
+
+
+insertion/deletion at beginning/end/position
+
+
+reverse list
+
+
+find middle (slow/fast)
+
+
+Nth from end
+
+
+cycle detection (Floyd)
+
+
+difference: singly vs doubly vs circular
+
+
+Deque (must know)
+
+
+both-end operations
+
+
+sliding window maximum idea
+
+
+stack/queue can be built from deque
+
+
+
+COMMON MISTAKES (very important)
+Stack mistakes
+
+
+Popping from empty stack (underflow)
+
+
+Forgetting to update top
+
+
+Confusing peek vs pop
+
+
+Queue mistakes
+
+
+Implementing dequeue at list front causing O(n) shifting (unless deque/circular)
+
+
+Wrong full/empty condition in circular queue
+
+
+Linked list mistakes
+
+
+Losing the head reference while inserting/deleting
+
+
+Not handling empty list / single node list
+
+
+Wrong pointer rewiring order (especially delete and reverse)
+
+
+Forgetting to break loop when removing cycle
