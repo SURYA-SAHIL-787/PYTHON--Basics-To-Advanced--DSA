@@ -1,0 +1,368 @@
+PYTHON (Advanced → Basic) — Theory Only (Modern Python)
+1) Python “Today”: what Python is now
+
+Python is a high-level, general-purpose language focused on:
+
+Readability + fast development
+
+Huge ecosystem (web, data, AI, automation)
+
+Multiple “implementations” (most common: CPython)
+
+Python’s strengths: productivity, libraries, community
+Python’s tradeoffs: slower than compiled languages, runtime type errors (unless using type hints)
+
+2) Internals (How Python runs)
+2.1 CPython execution pipeline
+
+You write .py
+
+Python compiles it to bytecode (.pyc)
+
+Python Virtual Machine (PVM) interprets that bytecode
+
+Important terms:
+
+Interpreter: runs code line-by-line (conceptually)
+
+Bytecode: intermediate instructions
+
+Runtime: manages objects, memory, modules, etc.
+
+2.2 Why Python feels “dynamic”
+
+Python decides many things at runtime:
+
+variable types can change
+
+attributes can be added dynamically
+
+functions are objects
+
+classes can be modified at runtime
+
+That dynamism is powerful but can cause:
+
+runtime bugs (wrong types, missing attributes)
+
+performance overhead
+
+3) Memory model & object model (Very important)
+3.1 Everything is an object (even functions/classes)
+
+In Python:
+
+integers, strings, lists are objects
+
+functions are objects
+
+classes are objects (metaclasses exist)
+
+3.2 References (names don’t store values directly)
+
+Python variables are names pointing to objects.
+So:
+
+assignment binds a name to an object
+
+copying references is common
+
+mutability matters a LOT
+
+3.3 Mutability rules (source of 80% confusion)
+
+Immutable: int, float, str, tuple (mostly), frozenset
+
+Mutable: list, dict, set, most class instances
+
+Implications:
+
+changing a mutable object affects all references to it
+
+immutable changes create new objects
+
+3.4 Garbage collection (memory cleanup)
+
+Python uses:
+
+reference counting (primary)
+
+plus a cycle detector (for reference cycles like A→B→A)
+
+Memory leaks can still happen:
+
+global lists/dicts keep growing
+
+caches without eviction
+
+unclosed resources (files, sockets)
+
+cycles with special cleanup patterns
+
+4) Concurrency & parallelism (Modern Python reality)
+4.1 Threads vs processes
+
+Python supports threads, but CPU-heavy work is tricky due to the GIL.
+
+4.2 The GIL (Global Interpreter Lock) — concept
+
+In CPython, only one thread executes Python bytecode at a time.
+So:
+
+threads help a lot for I/O-bound tasks (network, file)
+
+threads do NOT scale CPU-bound tasks well in pure Python
+
+4.3 Multiprocessing (true CPU parallelism)
+
+To use multiple CPU cores:
+
+spawn multiple processes (separate Python interpreter per process)
+
+communication overhead exists (IPC, serialization)
+
+4.4 Asyncio (asynchronous concurrency)
+
+Asyncio is about:
+
+one thread, many tasks
+
+cooperative scheduling using await
+Best for:
+
+lots of concurrent I/O (web scraping, servers, bots)
+
+Core ideas:
+
+event loop
+
+coroutines
+
+await yields control
+
+tasks scheduled concurrently
+
+4.5 Modern concurrency toolkit
+
+Thread pools / process pools
+
+Async frameworks
+
+Hybrid patterns (async + threads for blocking calls)
+
+5) Advanced language features (Power tools)
+5.1 Iterators, generators, lazy evaluation
+
+Iterators allow memory-efficient traversal
+
+Generators produce values on-demand (yield)
+Used heavily in real-world Python for performance and clean code.
+
+5.2 Decorators (wrapping behavior)
+
+Decorators modify functions/classes:
+
+logging
+
+timing
+
+authentication
+
+caching
+
+validation
+
+Conceptually: “function that takes a function and returns a new function”.
+
+5.3 Context managers (safe resource handling)
+
+with ensures cleanup:
+
+files close
+
+locks release
+
+connections return
+This prevents many bugs in production.
+
+5.4 Descriptors, dunder methods, operator overloading
+
+Python lets you define behavior like:
+
+attribute access
+
+arithmetic operations
+
+printing / formatting
+
+iteration
+This is how frameworks build “magic” but it must be used carefully.
+
+5.5 Metaclasses (very advanced)
+
+Metaclasses control class creation itself.
+Rare in daily code, but used in ORMs and frameworks.
+
+6) Type hints & “modern Python engineering”
+
+Python is dynamically typed, but modern projects use type hints for:
+
+better IDE autocomplete
+
+catching bugs earlier (static checking)
+
+clearer APIs
+
+Important reality:
+
+Type hints do not change runtime behavior (mostly)
+
+They are for tooling + readability + maintainability
+
+7) Data structures & performance thinking
+7.1 Core built-ins
+
+list: dynamic array
+
+tuple: immutable sequence
+
+dict: hash map (fast key lookup)
+
+set: hash set (fast membership)
+
+7.2 Time complexity mindset
+
+membership test in dict/set is usually fast
+
+list membership is linear
+
+sorting is optimized but still O(n log n)
+
+7.3 Copies vs views
+
+Many bugs come from:
+
+shallow copy vs deep copy confusion
+
+aliasing mutable objects
+
+8) Modules, packages, environments (real-world Python)
+8.1 Imports
+
+Import system loads modules once and caches them.
+Circular imports can cause weird partial initialization issues.
+
+8.2 Virtual environments
+
+Modern Python uses isolated environments to avoid dependency conflicts.
+In real projects:
+
+project has its own dependencies + versions
+
+8.3 Dependency management
+
+Tools handle:
+
+pinning versions
+
+reproducible builds
+
+packaging for deployment
+
+9) Exceptions & error philosophy (production mindset)
+
+Python uses exceptions heavily.
+Good design rules:
+
+raise meaningful exceptions
+
+don’t catch everything blindly
+
+log with context
+
+validate inputs early
+
+10) OOP in Python (different from Java)
+
+Python supports OOP but is more flexible:
+
+duck typing (“if it behaves like a duck…”)
+
+protocols/interfaces are optional
+
+multiple inheritance exists
+
+composition is common
+
+Key ideas:
+
+classes define behavior + state
+
+instance attributes are flexible
+
+properties manage controlled access
+
+11) Functional style (common in modern Python)
+
+Python supports:
+
+higher-order functions
+
+lambdas (limited)
+
+comprehensions
+
+map/filter/reduce (less used than comprehensions)
+
+immutability patterns (not enforced)
+
+12) Basics (foundation you must master)
+12.1 Variables and assignment
+
+names bind to objects
+
+mutability decides side effects
+
+12.2 Control flow
+
+if/elif/else
+
+for (iterator-based)
+
+while
+
+break/continue
+
+match-case (pattern matching in modern Python)
+
+12.3 Functions
+
+parameters: positional/keyword/defaults
+
+scope rules (local, nonlocal, global)
+
+closures
+
+12.4 Strings and formatting
+
+strings are immutable
+
+modern formatting is powerful and readable
+
+What matters most in “today-world Python”
+
+If you want strong real-world mastery, focus theory on:
+
+Object model + mutability + references
+
+dict/set performance thinking
+
+Concurrency: GIL + asyncio vs threads vs processes
+
+Generators, decorators, context managers
+
+Type hints for large projects
+
+Modules/imports + environments
+
+ 
