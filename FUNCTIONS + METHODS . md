@@ -1,0 +1,235 @@
+================= PYTHON FUNCTIONS + METHODS =================
+FUNCTIONS & METHODS (PYTHON)
+|
+|-- A) THE CORE DEFINITIONS (BURN THIS INTO BRAIN)
+|    |-- FUNCTION = REUSABLE CODE BLOCK, CALLED DIRECTLY
+|    |     |-- CALL: f(x)
+|    |-- METHOD = FUNCTION ATTACHED TO AN OBJECT/CLASS
+|    |     |-- CALL: obj.m(x)
+|    |-- SIMPLE RULE
+|         |-- IF YOU SEE DOT (.) BEFORE NAME → METHOD
+|         |-- IF NO DOT → FUNCTION (OR VARIABLE HOLDING A FUNCTION)
+|
+|-- B) HOW CALLING REALLY WORKS (THE “SECRET” THAT REMOVES CONFUSION)
+|    |-- obj.m(x) IS BASICALLY:
+|    |     |-- type(obj).m(obj, x)   (obj IS PASSED AS FIRST ARGUMENT)
+|    |-- THAT FIRST ARGUMENT NAME IS:
+|    |     |-- self (INSTANCE METHOD)
+|    |     |-- cls  (CLASS METHOD)
+|
+|-- C) FUNCTIONS (USER-DEFINED) — COMPLETE
+|    |
+|    |-- C1) DEFINE + CALL
+|    |     |-- def f(params):
+|    |     |--     body
+|    |     |--     return value
+|    |
+|    |-- C2) RETURN RULES (MOST IMPORTANT)
+|    |     |-- return x        -> RETURNS x
+|    |     |-- return          -> RETURNS None
+|    |     |-- no return       -> RETURNS None
+|    |     |-- return a, b     -> RETURNS (a, b)  (TUPLE)
+|    |
+|    |-- C3) PARAMETERS vs ARGUMENTS
+|    |     |-- PARAMETER: NAME INSIDE def(...)
+|    |     |-- ARGUMENT: VALUE YOU PASS WHILE CALLING
+|    |
+|    |-- C4) ALL PARAMETER TYPES (ULTRA IMPORTANT)
+|    |     |
+|    |     |-- POSITIONAL PARAMETERS
+|    |     |     |-- def f(a,b): ...
+|    |     |     |-- f(10,20)
+|    |     |
+|    |     |-- KEYWORD ARGUMENTS
+|    |     |     |-- f(a=10,b=20)
+|    |     |
+|    |     |-- DEFAULT PARAMETERS
+|    |     |     |-- def f(a, b=5)
+|    |     |     |-- DEFAULTS EVALUATE ONCE (MUTABLE DEFAULT TRAP)
+|    |     |
+|    |     |-- *args (VARIADIC POSITIONAL)
+|    |     |     |-- def f(*args): args IS A TUPLE
+|    |     |
+|    |     |-- **kwargs (VARIADIC KEYWORD)
+|    |     |     |-- def f(**kwargs): kwargs IS A DICT
+|    |     |
+|    |     |-- KEYWORD-ONLY PARAMETERS
+|    |     |     |-- def f(a, *, b, c=0):  b & c MUST BE NAMED
+|    |     |
+|    |     |-- POSITIONAL-ONLY (ADVANCED)
+|    |           |-- def f(a, b, /, c):  a,b MUST BE POSITIONAL
+|    |
+|    |-- C5) ARGUMENT PASSING RULES (NEVER FORGET)
+|    |     |-- POSITIONAL FIRST, THEN KEYWORD
+|    |     |-- ONE PARAMETER CANNOT RECEIVE TWO VALUES
+|    |     |-- ORDER OF UNPACKING IN CALLS
+|    |           |-- f(*iterable, **dict)
+|    |
+|    |-- C6) PACKING vs UNPACKING (THE SUPERPOWER)
+|    |     |-- PACKING
+|    |     |     |-- def f(*args, **kwargs)
+|    |     |-- UNPACKING
+|    |     |     |-- f(*L)    -> SPLIT LIST INTO POSITIONAL
+|    |     |     |-- f(**D)   -> SPLIT DICT INTO KEYWORDS
+|    |     |-- MULTI UNPACK (ADVANCED)
+|    |           |-- f(*L1, *L2)
+|    |           |-- f(**D1, **D2)  (NEWER PYTHON)
+|    |
+|    |-- C7) SCOPE (LEGB RULE) — SOURCE OF MANY DOUBTS
+|    |     |-- L: LOCAL (INSIDE FUNCTION)
+|    |     |-- E: ENCLOSING (NESTED OUTER FUNCTION)
+|    |     |-- G: GLOBAL (MODULE LEVEL)
+|    |     |-- B: BUILT-IN (len, print, ...)
+|    |     |-- global   -> MODIFY GLOBAL VARIABLE
+|    |     |-- nonlocal -> MODIFY ENCLOSING VARIABLE
+|    |
+|    |-- C8) MUTABILITY + PASSING (THE #1 REAL BUG SOURCE)
+|    |     |-- PYTHON PASSES OBJECT REFERENCES (CALL-BY-SHARING)
+|    |     |-- MUTABLE (list, dict, set) CAN BE MODIFIED IN FUNCTION
+|    |     |-- IMMUTABLE (int, str, tuple) CAN’T BE CHANGED IN PLACE
+|    |     |-- SAFE PATTERN:
+|    |           |-- NEVER MODIFY INPUT LIST UNLESS SPECIFIED
+|    |           |-- MAKE COPY WHEN NEEDED: new = old.copy()
+|    |
+|    |-- C9) DOCSTRINGS + TYPE HINTS (PRO LEVEL)
+|    |     |-- """EXPLAINS WHAT FUNCTION DOES"""
+|    |     |-- def f(x: int) -> int:
+|    |     |-- MAKES CODE READABLE + IDE HELP
+|    |
+|    |-- C10) LAMBDA (ANONYMOUS FUNCTION)
+|    |     |-- lambda x: x*x
+|    |     |-- MOSTLY USED FOR key= IN sort/sorted
+|    |
+|    |-- C11) HIGHER-ORDER FUNCTIONS (FUNCTIONS AS DATA)
+|    |     |-- PASS FUNCTION: map(f, items)
+|    |     |-- RETURN FUNCTION: def outer(): return inner
+|    |
+|    |-- C12) RECURSION (ADVANCED LOGIC)
+|    |     |-- BASE CASE (STOP)
+|    |     |-- RECURSIVE CASE (CALL SELF)
+|    |     |-- STACK DEPTH LIMIT
+|
+|-- D) METHODS — COMPLETE (OBJECT SIDE)
+|    |
+|    |-- D1) WHAT IS A METHOD REALLY?
+|    |     |-- FUNCTION INSIDE CLASS
+|    |     |-- CALLED USING OBJECT: obj.m(...)
+|    |
+|    |-- D2) 3 MAIN METHOD TYPES (MUST KNOW)
+|    |     |
+|    |     |-- INSTANCE METHOD (MOST COMMON)
+|    |     |     |-- def m(self, ...): ...
+|    |     |     |-- USES/CHANGES OBJECT STATE
+|    |     |
+|    |     |-- CLASS METHOD
+|    |     |     |-- @classmethod
+|    |     |     |-- def m(cls, ...): ...
+|    |     |     |-- ALTERNATE CONSTRUCTORS, FACTORIES
+|    |     |
+|    |     |-- STATIC METHOD
+|    |           |-- @staticmethod
+|    |           |-- def m(...): ...
+|    |           |-- UTILITY FUNCTION KEPT INSIDE CLASS NAMESPACE
+|
+|    |-- D3) MAGIC / DUNDER METHODS (PRO LEVEL)
+|    |     |-- __init__     (CONSTRUCTOR)
+|    |     |-- __str__      (PRINTING)
+|    |     |-- __repr__     (DEBUG VIEW)
+|    |     |-- __len__      (len(obj))
+|    |     |-- __iter__     (for x in obj)
+|    |     |-- __getitem__  (obj[i])
+|    |     |-- __setitem__  (obj[i]=x)
+|    |     |-- __contains__ (x in obj)
+|    |     |-- __call__     (obj() LIKE FUNCTION)
+|
+|-- E) BUILT-IN FUNCTIONS VS METHODS (THE COMMON CONFUSION)
+|    |
+|    |-- BUILT-IN FUNCTIONS (NO DOT)
+|    |     |-- len(L), sum(L), min(L), max(L)
+|    |     |-- sorted(L)  -> RETURNS NEW LIST
+|    |     |-- type(x), isinstance(x, T)
+|    |
+|    |-- COMMON “FUNCTION vs METHOD” PAIRS (MEMORIZE)
+|          |-- sorted(L)    vs  L.sort()
+|          |-- reversed(L)  vs  L.reverse()
+|          |-- str(x)       vs  x.__str__() (INTERNAL)
+|
+|-- F) MOST IMPORTANT METHOD FAMILIES (REAL-LIFE DAILY)
+|    |
+|    |-- LIST METHODS
+|    |     |-- append, extend, insert
+|    |     |-- pop, remove, clear
+|    |     |-- sort, reverse, copy
+|    |
+|    |-- STRING METHODS (TEXT WORK)
+|    |     |-- lower/upper/title
+|    |     |-- strip/lstrip/rstrip
+|    |     |-- replace
+|    |     |-- split / rsplit
+|    |     |-- join
+|    |     |-- find / index
+|    |     |-- startswith/endswith
+|    |
+|    |-- DICT METHODS (DATA STRUCTURE KING)
+|    |     |-- get (SAFE ACCESS)
+|    |     |-- keys, values, items
+|    |     |-- update
+|    |     |-- pop, popitem, clear
+|    |     |-- setdefault
+|    |
+|    |-- SET METHODS (UNIQUE + FAST MEMBERSHIP)
+|          |-- add, update
+|          |-- remove, discard, pop
+|          |-- union, intersection, difference
+|
+|-- G) ADVANCED FUNCTION TOOLS (PRO LEVEL FEATURES)
+|    |
+|    |-- G1) DECORATORS (@something)
+|    |     |-- WRAP FUNCTION TO ADD EXTRA BEHAVIOR
+|    |     |-- USE CASES: LOGGING, TIMING, AUTH, CACHING
+|    |
+|    |-- G2) GENERATORS (yield)
+|    |     |-- LAZY OUTPUT (MEMORY SAVING)
+|    |     |-- FOR STREAMING FILES / BIG DATA
+|    |
+|    |-- G3) ITERATORS + ITERABLES
+|    |     |-- iterable: can be looped
+|    |     |-- iterator: gives next() until StopIteration
+|    |
+|    |-- G4) PARTIAL FUNCTIONS (ADVANCED)
+|    |     |-- fix some arguments, create new function
+|    |
+|    |-- G5) ASYNC FUNCTIONS
+|          |-- async def, await (I/O concurrency)
+|
+|-- H) DESIGN PRINCIPLES (REAL-WORLD CLEAN CODE)
+|    |-- SINGLE RESPONSIBILITY: ONE JOB PER FUNCTION
+|    |-- PURE FUNCTIONS PREFERRED (EASY TESTING)
+|    |-- SEPARATE I/O FROM LOGIC
+|    |-- NAME CLEARLY (verb_noun style)
+|    |-- RETURN VALUES INSTEAD OF PRINTING
+|    |-- VALIDATE INPUTS, RAISE CLEAN ERRORS
+|
+|-- I) REAL-WORLD PIPELINES (WHERE FUNCTIONS + METHODS WIN)
+|    |-- DATA CLEANING
+|    |     |-- read -> parse -> clean -> validate -> transform -> export
+|    |-- API PROCESSING
+|    |     |-- list of dicts -> filter -> map -> sort -> aggregate
+|    |-- AUTOMATION
+|    |     |-- scan folders -> filter files -> rename -> report
+|    |-- CLI PROGRAMS
+|          |-- main() handles input/output
+|          |-- helper functions handle logic
+|
+|-- J) DEBUGGING + MASTERY CHECKLIST (IF YES = YOU OWN IT)
+|    |-- CAN EXPLAIN: obj.m(x) PASSES obj AS self
+|    |-- CAN CHOOSE: sorted(L) VS L.sort() CORRECTLY
+|    |-- CAN USE: default + keyword + *args + **kwargs
+|    |-- CAN APPLY: UNPACKING (*list, **dict) WITHOUT ERRORS
+|    |-- CAN EXPLAIN: LEGB + global + nonlocal
+|    |-- CAN AVOID: MUTABLE DEFAULT ARGUMENT BUG
+|    |-- CAN BUILD: CLEAN FUNCTIONS (LOGIC SEPARATE FROM I/O)
+|    |-- CAN READ: help(), dir(), DOCSTRINGS
+|    |-- CAN USE: DECORATORS / GENERATORS WHEN NEEDED
+|
+===========================================================================================
