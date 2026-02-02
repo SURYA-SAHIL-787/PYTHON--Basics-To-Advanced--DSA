@@ -1,0 +1,202 @@
+========================= PYTHON LISTS =========================
+PYTHON LIST (DYNAMIC ARRAY OF REFERENCES)
+|
+|-- 0) FOUNDATION MINDSET (NO-DOUBT CORE)
+|    |-- LIST = ORDERED + MUTABLE + INDEXED COLLECTION
+|    |-- ELEMENTS ARE REFERENCES TO OBJECTS (IMPORTANT FOR NESTED LISTS)
+|    |-- LIST STORES ANY TYPES (BUT REAL PROJECTS PREFER CONSISTENT TYPES)
+|    |-- INDEXING IS O(1), INSERT/DELETE MIDDLE IS O(N)
+|
+|-- 1) CREATE LISTS (ALL WAYS)
+|    |-- LITERAL: [1,2,3]
+|    |-- EMPTY: []
+|    |-- FROM ITERABLE: list("ABC"), list(range(10))
+|    |-- REPEAT: [0]*10
+|    |-- COMPREHENSION: [f(x) for x in items]
+|    |-- CONDITIONAL COMPREHENSION: [x for x in items if cond]
+|    |-- 2D/3D CORRECT CREATION
+|         |-- 2D: [[0 for _ in range(C)] for _ in range(R)]
+|         |-- AVOID: [[0]*C]*R  (ALIASING TRAP)
+|
+|-- 2) READ / ACCESS (INDEXING)
+|    |-- POSITIVE: L[0], L[i]
+|    |-- NEGATIVE: L[-1] (LAST), L[-2]
+|    |-- SAFE ACCESS PATTERNS
+|         |-- CHECK: 0 <= i < len(L)
+|         |-- TRY/EXCEPT IndexError (WHEN INPUT IS UNKNOWN)
+|
+|-- 3) SLICING (SUBLISTS) — MOST POWERFUL
+|    |-- L[start:end] (END EXCLUSIVE)
+|    |-- L[start:end:step]
+|    |-- SHORTCUTS
+|         |-- L[:end], L[start:], L[:]
+|         |-- COPY: L[:] (SHALLOW COPY)
+|         |-- REVERSE: L[::-1]
+|    |-- SLICE ASSIGNMENT (EDIT MANY AT ONCE)
+|         |-- L[a:b] = [..] (REPLACE RANGE)
+|         |-- L[a:b] = []   (DELETE RANGE)
+|
+|-- 4) ADD / INSERT / EXTEND (GROW LIST)
+|    |-- APPEND(x)        -> ADD END (FAST)
+|    |-- EXTEND(iterable) -> ADD MANY (FAST)
+|    |-- INSERT(i, x)     -> ADD AT INDEX (SLOW IF BIG)
+|    |-- CONCAT: L1 + L2  -> NEW LIST
+|    |-- IN-PLACE CONCAT: L1 += L2
+|
+|-- 5) REMOVE / DELETE / CLEAR
+|    |-- POP() / POP(i)       -> REMOVES + RETURNS
+|    |-- REMOVE(x)            -> FIRST MATCH ONLY
+|    |-- DEL L[i]             -> DELETE BY INDEX
+|    |-- DEL L[a:b]           -> DELETE SLICE
+|    |-- CLEAR()              -> EMPTY LIST
+|
+|-- 6) SEARCH / CHECK / COUNT
+|    |-- MEMBERSHIP: x IN L (LINEAR)
+|    |-- INDEX(x)             -> POSITION (ERROR IF NOT FOUND)
+|    |-- COUNT(x)             -> FREQUENCY
+|    |-- SAFE PATTERN
+|         |-- IF x IN L: ...
+|         |-- OR USE try: L.index(x)
+|
+|-- 7) ITERATION (LOOPS) — CLEAN + REAL WORLD
+|    |-- FOR VALUE: for v in L
+|    |-- FOR INDEX: for i in range(len(L))
+|    |-- BEST: for i, v in enumerate(L)
+|    |-- REVERSED: for v in reversed(L)
+|    |-- PARALLEL: for a, b in zip(L1, L2)
+|    |-- FILTER/MAP STYLE
+|         |-- [x for x in L if cond]
+|         |-- list(map(f, L))
+|         |-- list(filter(cond, L))
+|
+|-- 8) SORTING (CRITICAL IN REAL LIFE)
+|    |-- IN-PLACE: L.sort()
+|    |-- NEW LIST: sorted(L)
+|    |-- REVERSE ORDER: reverse=True
+|    |-- CUSTOM KEY (MOST IMPORTANT)
+|         |-- sort(key=len)
+|         |-- sort(key=lambda x: x["price"])
+|         |-- MULTI-KEY: key=lambda x: (x["dept"], -x["score"])
+|    |-- STABILITY (SORT KEEPS RELATIVE ORDER OF EQUAL KEYS)
+|
+|-- 9) LIST METHODS (MUST-MEMORIZE TOOLBELT)
+|    |-- append, extend, insert
+|    |-- pop, remove, clear
+|    |-- index, count
+|    |-- sort, reverse
+|    |-- copy
+|
+|-- 10) COPY RULES (THE #1 CONFUSION TOPIC)
+|    |-- REFERENCE COPY (DANGEROUS)
+|    |     |-- B = A  (SAME LIST)
+|    |-- SHALLOW COPY (OK FOR 1D)
+|    |     |-- B = A.copy()
+|    |     |-- B = A[:]
+|    |-- DEEP COPY (FOR NESTED)
+|         |-- import copy
+|         |-- B = copy.deepcopy(A)
+|
+|-- 11) NESTED LISTS (2D/3D) — MATRICES, TABLES, GRIDS
+|    |-- ACCESS: grid[r][c]
+|    |-- UPDATE: grid[r][c] = value
+|    |-- COMMON TASKS
+|         |-- ROW SUMS, COL SUMS
+|         |-- TRANSPOSE
+|         |-- FLATTEN: [x for row in grid for x in row]
+|    |-- ALIASING TRAP
+|         |-- [[0]*C]*R  -> ALL ROWS LINKED
+|
+|-- 12) COMMON PATTERNS (THE “PLAYING” PART)
+|    |-- BUILD LIST (COLLECT RESULTS)
+|    |-- TRANSFORM LIST (MAP)
+|    |-- FILTER LIST (REMOVE UNWANTED)
+|    |-- REDUCE/AGGREGATE (SUM/MIN/MAX)
+|    |-- GROUPING
+|    |     |-- DICT OF LISTS (VERY REAL-WORLD)
+|    |-- WINDOW / CHUNKS
+|    |     |-- SLIDING WINDOW, BATCH PROCESSING
+|    |-- TWO POINTERS
+|    |-- STACK USING LIST
+|    |     |-- append = PUSH, pop = POP
+|    |-- QUEUE (CAUTION)
+|         |-- POP(0) IS SLOW -> USE collections.deque
+|
+|-- 13) PERFORMANCE / BIG-O (DON’T GET TRICKED)
+|    |-- L[i] ACCESS: O(1)
+|    |-- APPEND: O(1) AMORTIZED
+|    |-- POP END: O(1)
+|    |-- INSERT/DELETE MIDDLE: O(N)
+|    |-- SEARCH (x in L): O(N)
+|    |-- SORT: O(N LOG N)
+|    |-- CONCAT IN LOOP IS BAD
+|         |-- USE append + join (FOR STRINGS) OR extend
+|
+|-- 14) “LIST VS …” (WHICH TOOL WHEN?)
+|    |-- LIST VS TUPLE
+|    |     |-- LIST: MUTABLE, BUILD/EDIT
+|    |     |-- TUPLE: FIXED, SAFE, HASHABLE (IF IMMUTABLE CONTENT)
+|    |-- LIST VS SET
+|    |     |-- SET: FAST MEMBERSHIP, UNIQUE
+|    |-- LIST VS DICT
+|    |     |-- DICT: KEY->VALUE LOOKUPS
+|    |-- LIST VS DEQUE
+|         |-- DEQUE: FAST POP LEFT / QUEUE
+|
+|-- 15) REAL-WORLD SCENARIOS (WHERE LISTS DOMINATE)
+|    |-- STUDENT MARKS / ATTENDANCE RECORDS
+|    |-- SHOPPING CART ITEMS (LIST OF DICTS)
+|    |-- LOG LINES / EVENTS STREAM (COLLECT + FILTER + SORT)
+|    |-- CSV/EXCEL ROWS AFTER PARSING
+|    |-- API JSON DATA (LIST OF OBJECTS)
+|    |-- CHAT MESSAGES / NOTIFICATIONS FEED
+|    |-- IMAGE PIXELS / GRID (2D LIST)
+|    |-- TASKS TO PROCESS (BATCH JOBS)
+|    |-- HISTORY / UNDO FEATURE (STACK)
+|
+|-- 16) INDUSTRY-GRADE DATA MODELS USING LISTS
+|    |-- LIST OF DICTS (MOST COMMON)
+|    |     |-- users = [{"id":1,"name":"A"}, ...]
+|    |-- DICT OF LISTS (GROUPING)
+|    |     |-- dept_users = {"CSE":[...], "ECE":[...]}
+|    |-- LIST OF TUPLES (LIGHTWEIGHT RECORDS)
+|    |-- LIST OF OBJECTS (OOP STYLE)
+|
+|-- 17) TESTING / DEBUGGING LISTS (PRO LEVEL HABITS)
+|    |-- PRINT SHAPES: len(L), len(L[0]) (FOR 2D)
+|    |-- CHECK TYPES: type(x), isinstance(x, ...)
+|    |-- ASSERTIONS
+|    |     |-- assert all(cond for x in L)
+|    |-- EDGE CASES
+|         |-- EMPTY LIST
+|         |-- SINGLE ELEMENT
+|         |-- ALL SAME VALUES
+|         |-- VERY LARGE LIST
+|         |-- NESTED MUTATION
+|
+|-- 18) PROJECTS (LIST-HEAVY) — BUILD THESE TO MASTER
+|    |-- PROJECT 1: STUDENT GRADEBOOK
+|    |     |-- LIST OF STUDENTS, SORT BY SCORE, TOP-K, FAIL LIST
+|    |-- PROJECT 2: EXPENSE TRACKER
+|    |     |-- LIST OF TRANSACTIONS, FILTER BY DATE, SUM BY CATEGORY
+|    |-- PROJECT 3: TO-DO APP (CLI)
+|    |     |-- ADD/REMOVE/UPDATE, PRIORITY SORT, SEARCH
+|    |-- PROJECT 4: MINI E-COMMERCE CART
+|    |     |-- CART LIST, QUANTITY UPDATE, TOTAL BILL, DISCOUNT RULES
+|    |-- PROJECT 5: LOG ANALYZER
+|    |     |-- READ LINES -> LIST, FILTER ERRORS, COUNT, TOP SOURCES
+|    |-- PROJECT 6: CSV REPORT GENERATOR
+|    |     |-- PARSE ROWS -> LIST OF DICTS -> SORT -> EXPORT SUMMARY
+|    |-- PROJECT 7: 2D GRID GAME (TIC TAC TOE / SNAKE LITE)
+|    |     |-- GRID LIST, MOVES, VALIDATION, WIN CHECK
+|    |-- PROJECT 8: SIMPLE RECOMMENDER
+|         |-- LIST OF ITEMS, SIMILARITY SCORE, TOP-N RESULTS
+|
+|-- 19) “MASTER CHECKLIST” (IF YOU CAN DO THIS, YOU OWN LISTS)
+|    |-- CAN CREATE 1D/2D WITHOUT ALIASING
+|    |-- CAN SLICE + SLICE-ASSIGN WITHOUT CONFUSION
+|    |-- CAN COPY SHALLOW VS DEEP CORRECTLY
+|    |-- CAN SORT BY CUSTOM KEY (DICT/OBJECT)
+|    |-- CAN BUILD PIPELINES: READ -> FILTER -> MAP -> SORT -> OUTPUT
+|    |-- CAN PICK RIGHT STRUCTURE (LIST/SET/DICT/DEQUE)
+|
+===============================================================================
