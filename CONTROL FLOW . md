@@ -1,0 +1,219 @@
+====================== PYTHON CONTROL FLOW ======================
+
+
+CONTROL FLOW (PYTHON) = DECISION + REPETITION + JUMPING + ERROR FLOW + RESOURCE FLOW
+|
+|-- 0) EXECUTION ENGINE (ROOT LEVEL)
+|    |-- DEFAULT: TOP → DOWN, STATEMENT BY STATEMENT
+|    |-- BLOCKS = INDENTATION (COLON + INDENT)
+|    |-- FLOW CAN BE CHANGED BY:
+|         |-- BRANCHING (if/elif/else, match/case)
+|         |-- LOOPING (for, while)
+|         |-- JUMPING (break, continue, pass, return, raise)
+|         |-- EXCEPTIONS (try/except/else/finally)
+|         |-- CONTEXT (with)
+|
+|-- 1) BOOLEAN + CONDITIONS (THE HEART OF ALL DECISIONS)
+|    |
+|    |-- 1.1 COMPARISON OPERATORS
+|    |     |-- ==  !=  <  >  <=  >=
+|    |     |-- CHAINING:  a < b < c
+|    |
+|    |-- 1.2 IDENTITY vs EQUALITY (MOST IMPORTANT)
+|    |     |-- ==  : SAME VALUE?
+|    |     |-- is  : SAME OBJECT?
+|    |     |-- GOLD RULE:
+|    |          |-- USE is FOR None (x is None)
+|    |          |-- USE == FOR VALUES (x == 0, x == "hi")
+|    |
+|    |-- 1.3 LOGICAL OPERATORS
+|    |     |-- and  or  not
+|    |
+|    |-- 1.4 SHORT-CIRCUIT (ADVANCED POWER)
+|    |     |-- A and B: IF A FALSE → B NOT RUN
+|    |     |-- A or  B: IF A TRUE  → B NOT RUN
+|    |     |-- REAL PATTERNS:
+|    |          |-- defaulting:  x = user_input or default
+|    |          |-- safe call:   obj and obj.method()
+|    |
+|    |-- 1.5 TRUTHINESS (PYTHON STYLE CHECKS)
+|    |     |-- FALSEY: 0, 0.0, "", [], {}, set(), None, False
+|    |     |-- TRUTHY: EVERYTHING ELSE
+|    |     |-- CLEAN CHECKS:
+|    |          |-- if items:     (NOT EMPTY)
+|    |          |-- if not items: (EMPTY)
+|    |          |-- if x is None: (SPECIAL CASE)
+|
+|-- 2) BRANCHING (IF / ELIF / ELSE)
+|    |
+|    |-- 2.1 BASIC STRUCTURE
+|    |     |-- if cond:
+|    |     |-- elif cond:
+|    |     |-- else:
+|    |
+|    |-- 2.2 NESTING
+|    |     |-- if inside if (USE WHEN LOGIC REQUIRES)
+|    |
+|    |-- 2.3 GUARD CLAUSES (PRO STYLE)
+|    |     |-- HANDLE BAD CASES EARLY THEN EXIT
+|    |     |-- if invalid: return / raise
+|    |
+|    |-- 2.4 TERNARY (ONE-LINE IF)
+|    |     |-- result = A if cond else B
+|
+|-- 3) LOOPING WITH for (ITERABLE-BASED CONTROL FLOW)
+|    |
+|    |-- 3.1 WHAT for REALLY MEANS
+|    |     |-- GET NEXT ITEM FROM ITERATOR UNTIL STOP
+|    |
+|    |-- 3.2 ITERABLES YOU LOOP OVER
+|    |     |-- list, tuple, str, set, dict, range, file, generator
+|    |
+|    |-- 3.3 range() (INDEX/COUNT LOOPS)
+|    |     |-- range(n)
+|    |     |-- range(start, end)
+|    |     |-- range(start, end, step)
+|    |
+|    |-- 3.4 enumerate() (INDEX + VALUE)  [BEST PRACTICE]
+|    |     |-- for i, v in enumerate(L):
+|    |
+|    |-- 3.5 zip() (PARALLEL LOOPING)
+|    |     |-- for a, b in zip(A, B):
+|    |
+|    |-- 3.6 dict LOOPING (REAL WORLD DATA)
+|    |     |-- for k in d:
+|    |     |-- for v in d.values():
+|    |     |-- for k, v in d.items():
+|    |
+|    |-- 3.7 BUILD / FILTER / TRANSFORM PATTERNS
+|    |     |-- COLLECT:
+|    |     |     |-- out=[]; for x in data: out.append(f(x))
+|    |     |-- FILTER:
+|    |     |     |-- for x in data: if cond: out.append(x)
+|    |     |-- TRANSFORM + FILTER:
+|    |           |-- if cond: out.append(f(x))
+|
+|-- 4) LOOPING WITH while (CONDITION-BASED CONTROL FLOW)
+|    |
+|    |-- 4.1 WHAT while DOES
+|    |     |-- REPEAT WHILE CONDITION TRUE
+|    |
+|    |-- 4.2 THE 3 MOST IMPORTANT while PATTERNS
+|    |     |
+|    |     |-- COUNTER LOOP
+|    |     |     |-- i=0; while i<n: i+=1
+|    |     |
+|    |     |-- VALIDATION LOOP (REAL LIFE)
+|    |     |     |-- while True: read input; if ok: break
+|    |     |
+|    |     |-- EVENT LOOP / MENU LOOP
+|    |           |-- while True: show menu; if exit: break
+|    |
+|    |-- 4.3 INFINITE LOOP CAUSES
+|         |-- UPDATE MISSING (i+=1 forgotten)
+|         |-- WRONG CONDITION
+|
+|-- 5) JUMP STATEMENTS (STEERING WHEEL OF LOOPS)
+|    |
+|    |-- 5.1 break
+|    |     |-- EXIT LOOP IMMEDIATELY
+|    |
+|    |-- 5.2 continue
+|    |     |-- SKIP CURRENT ITERATION → NEXT ITERATION
+|    |
+|    |-- 5.3 pass
+|    |     |-- DO NOTHING (PLACEHOLDER FOR EMPTY BLOCKS)
+|    |
+|    |-- 5.4 return (FUNCTION EXIT)
+|    |     |-- END FUNCTION NOW (ALSO ENDS LOOPS INSIDE IT)
+|    |
+|    |-- 5.5 raise (ERROR EXIT)
+|          |-- STOP NORMAL FLOW BY THROWING EXCEPTION
+|
+|-- 6) LOOP else (PYTHON-SPECIFIC “SEARCH COMPLETER”)
+|    |
+|    |-- else RUNS ONLY IF LOOP ENDS WITHOUT break
+|    |
+|    |-- PERFECT USE: SEARCH
+|    |     |-- for x in data:
+|    |     |--     if found: break
+|    |     |-- else:
+|    |     |--     not found
+|
+|-- 7) EXCEPTION CONTROL FLOW (try/except/else/finally)
+|    |
+|    |-- 7.1 STRUCTURE
+|    |     |-- try: risky code
+|    |     |-- except SomeError: handle
+|    |     |-- else: runs if NO error
+|    |     |-- finally: ALWAYS runs
+|    |
+|    |-- 7.2 BEST PRACTICE RULES
+|    |     |-- CATCH SPECIFIC ERRORS (ValueError, KeyError, IndexError)
+|    |     |-- AVOID bare except:
+|    |     |-- DON’T USE EXCEPT FOR NORMAL IF-LOGIC
+|    |
+|    |-- 7.3 RETRY PATTERN (VERY REAL WORLD)
+|    |     |-- while True:
+|    |     |--   try: do; break
+|    |     |--   except: fix input; continue
+|
+|-- 8) RESOURCE CONTROL FLOW (with CONTEXT MANAGER)
+|    |
+|    |-- 8.1 WHY with IS CONTROL FLOW
+|    |     |-- GUARANTEES CLEANUP EVEN IF ERROR HAPPENS
+|    |
+|    |-- 8.2 MOST COMMON
+|         |-- with open(...) as f:
+|         |-- with lock:
+|
+|-- 9) MATCH/CASE (PATTERN MATCHING) — MODERN BRANCHING (3.10+)
+|    |
+|    |-- 9.1 STRUCTURE
+|    |     |-- match value:
+|    |     |--   case 1:
+|    |     |--   case "a" | "b":
+|    |     |--   case _:
+|    |
+|    |-- 9.2 BEST USE CASES
+|         |-- COMMAND ROUTING (MENU)
+|         |-- STATE MACHINE
+|         |-- MULTIPLE OPTIONS CLEANLY
+|
+|-- 10) COMPREHENSIONS (CONTROL FLOW IN EXPRESSIONS)
+|    |
+|    |-- LIST: [expr for x in it]
+|    |-- LIST+IF: [expr for x in it if cond]
+|    |-- DICT: {k:v for x in it}
+|    |-- SET:  {expr for x in it}
+|    |-- GEN:  (expr for x in it)  (LAZY)
+|
+|-- 11) REAL PROGRAM BLUEPRINTS (COPY-PASTE LOGIC IN YOUR HEAD)
+|    |
+|    |-- 11.1 VALIDATION + GUARD
+|    |-- 11.2 SEARCH + break/else
+|    |-- 11.3 READ-FILTER-TRANSFORM-AGGREGATE
+|    |-- 11.4 MENU LOOP + match/case
+|    |-- 11.5 TRY/EXCEPT RETRY LOOP
+|    |-- 11.6 CLEANUP ALWAYS (finally / with)
+|
+|-- 12) TOP MISTAKES (REMOVE THESE = PRO)
+|    |
+|    |-- == vs is WRONG USAGE
+|    |-- MODIFYING LIST WHILE ITERATING
+|    |-- while LOOP UPDATE MISSING
+|    |-- BAD INDENTATION / MIXED TABS
+|    |-- TOO BROAD EXCEPT
+|
+|-- 13) FINAL MASTERY CHECKLIST (PASS THIS = ZERO DOUBT)
+|    |
+|    |-- I CAN EXPLAIN TRUTHINESS + SHORT-CIRCUIT
+|    |-- I CAN WRITE CLEAN if/elif/else + TERNARY
+|    |-- I USE enumerate + zip NATURALLY
+|    |-- I CAN CHOOSE for VS while CORRECTLY
+|    |-- I USE break/continue + loop-else CORRECTLY
+|    |-- I HANDLE ERRORS WITH try/except/else/finally
+|    |-- I USE with FOR SAFE RESOURCES
+|    |-- I CAN BUILD MENU PROGRAMS + PIPELINES CONFIDENTLY
+|
+============================================================================================
